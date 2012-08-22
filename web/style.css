@@ -28,13 +28,13 @@ a:hover, a:active {
   color: #523d48;
   background-color: #d3ffa4; }
 
-heading {
+header {
   font-family: "Quicksand", "Arial", sans-serif;
   text-align: center; }
-  heading p {
+  header p {
     font-size: 14px;
     margin-bottom: 0.5em; }
-  heading h1 {
+  header h1 {
     font-size: 36px;
     font-weight: 400;
     margin: 0 0 0.3em 0;
