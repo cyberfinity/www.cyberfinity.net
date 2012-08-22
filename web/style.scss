@@ -1,0 +1,89 @@
+
+// Common colors
+$logoGrey: #523d48;
+$logoGreen: #d3ffa4;
+
+$linkBlue: #1d97ff;
+$linkPurple: #a555ff;
+
+
+// Import "Quicksand" & "Lato" fonts from Google
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic|Quicksand:300,400);
+
+
+
+body {
+	font-family: "Lato", "Verdana", sans-serif;
+	font-size: 12px;
+	color: $logoGrey;
+}
+
+.bodySection {
+	width: 90%;
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+p, ul, ol {
+	margin: 0 0 1em 0;
+	padding: 0;
+}
+
+li {
+	margin: 0 0 0.5em 2em;
+	padding: 0;
+}
+
+a:link {
+	color: $linkBlue;
+}
+	
+a:visited {
+	color: $linkPurple;
+}
+	
+a:hover, a:active {
+	color: $logoGrey;
+	background-color: $logoGreen;
+}
+
+heading {
+	font-family: "Quicksand", "Arial", sans-serif;
+	text-align: center;
+
+	p {
+		font-size: 14px;
+		margin-bottom: 0.5em;
+	}
+
+	h1 {
+		font-size: 36px;
+		font-weight: 400;
+		margin: 0 0 0.3em 0;
+		padding: 180px 0 0 0;
+		background: url('cyberfinity_logo.png') no-repeat 50% 0;	
+	}
+}
+
+footer {
+	margin-top: 20px;
+	font-size: 10px;
+	text-align: center;
+}
+
+
+.tmp {
+	text-align: center;
+	
+	li {
+		list-style-type: none;
+		margin-left: 0;
+		
+		a {
+			display: block;
+			padding: 3px;
+		}
+	}
+	
+}
