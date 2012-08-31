@@ -1,20 +1,21 @@
-@-webkit-keyframes pulsar {
+@-webkit-keyframes zoom {
   from {
-    background-position: 0px 0px; }
+    background-position: 0px 0px, 0px 0px; }
 
   to {
-    background-position: 80px 40px; } }
+    background-position: -40px 40px, 80px 40px; } }
 
-#pulsar {
-  margin: 0 auto;
+div {
+  margin: 1em auto;
   width: 300px;
   height: 100px;
   border: 1px solid #000;
-  background: url("bg1.png") repeat; }
-
-#pulsar:hover {
-  -webkit-animation-name: pulsar;
-  -webkit-animation-duration: 0.5s;
+  background-image: url("bg2.png"), url("bg1.png");
+  background-repeat: repeat;
+  -webkit-animation-duration: 0.4s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-direction: normal;
   -webkit-animation-timing-function: linear; }
+
+#zoom:hover {
+  -webkit-animation-name: zoom; }
