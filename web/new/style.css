@@ -1,3 +1,6 @@
+body {
+  background: #707070 url("circuit.gif") repeat; }
+
 @-webkit-keyframes zoom {
   from {
     background-position: 0px 0px, 0px 0px; }
