@@ -1,6 +1,49 @@
 body {
-  background: #707070 url("circuit.gif") repeat; }
+  color: #1ee857;
+  font-family: monospace;
+  background: #0a3616 url("circuit.gif") repeat; }
 
+a:link {
+  color: #ff6833; }
+
+.box {
+  margin: 0.5em auto 0.5em auto;
+  width: 600px;
+  background-color: #0a3616;
+  border: 3px double #1ee857;
+  box-shadow: 0 4px 0 #051b0b; }
+
+h1 {
+  font-size: 1em;
+  margin: 0;
+  padding: 0.5em;
+  text-align: center; }
+
+nav {
+  display: block;
+  margin: 0.5em auto 0.5em auto;
+  width: 600px; }
+  nav ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style-type: none; }
+    nav ul li {
+      display: block;
+      width: 200px;
+      float: left; }
+      nav ul li a {
+        display: block;
+        text-align: center;
+        margin: 0 0.5em 0 0.5em;
+        padding: 0.5em;
+        background-color: #521500;
+        border: 3px double #ff6833;
+        box-shadow: 0 4px 0 #051b0b; }
+
+/**
+	CSS animation experiment
+*/
 @-webkit-keyframes zoom {
   from {
     background-position: 0px 0px, 0px 0px; }

@@ -68,9 +68,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="52.384868"
-     inkscape:cy="76.006772"
+     inkscape:zoom="3.959798"
+     inkscape:cx="45.450851"
+     inkscape:cy="81.046736"
      inkscape:document-units="px"
      inkscape:current-layer="g3818"
      showgrid="true"
@@ -97,7 +97,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -143,10 +143,10 @@
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="ccccccc" />
       <path
-         inkscape:connector-curvature="0"
-         id="path3820"
-         d="m 50,902.36218 c -22.09139,0 -40,17.90861 -40,40 0,22.09139 17.908608,40 40,40 l 20,0 0,20.00002 c 0,22.0914 17.90861,40 40,40 22.09139,0 40,-17.9086 40,-40 0,-22.09141 -17.90861,-40.00002 -40,-40.00002 l -60,0 c -11.045695,0 -20,-8.95431 -20,-20 0,-11.0457 8.954305,-20 20,-20 11.045695,0 20,8.9543 20,20 l 0,10 20,0 0,-10 c 0,-22.09139 -17.90861,-40 -40,-40 z m 0,5 c 19.329966,0 35,15.67003 35,35 l 0,5 -10,0 0,-5 c 0,-13.80712 -11.192881,-25 -25,-25 -13.807119,0 -25,11.19288 -25,25 0,13.80712 11.192881,25 25,25 l 35,0 0,10 -35,0 c -19.329966,0 -35,-15.67003 -35,-35 0,-19.32997 15.670033,-35 35,-35 z m 40,75 20,0 c 11.0457,0 20,8.9543 20,20.00002 0,11.0457 -8.9543,20 -20,20 -11.045695,0 -20,-8.9543 -20,-20 l 0,-20.00002 z"
-         style="color:#000000;fill:#523d48;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:4.50000000000000000;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+         style="color:#000000;fill:#523d48;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:4.50000000000000000;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;stroke-opacity:1"
+         d="M 50 10 C 27.90861 10 10 27.90861 10 50 C 10 72.09139 27.908608 90 50 90 L 70 90 L 70 110 C 70 132.0914 87.90861 150 110 150 C 132.09139 150 150 132.0914 150 110 C 150 87.90859 132.09139 70 110 70 L 90 70 L 90 50 C 90 27.90861 72.09139 10 50 10 z M 50 15 C 69.329966 15 85 30.67003 85 50 L 85 55 L 75 55 L 75 50 C 75 36.19288 63.807119 25 50 25 C 36.192881 25 25 36.19288 25 50 C 25 63.80712 36.192881 75 50 75 L 85 75 L 85 85 L 50 85 C 30.670034 85 15 69.32997 15 50 C 15 30.67003 30.670033 15 50 15 z M 50 30 C 61.045695 30 70 38.9543 70 50 L 70 70 L 50 70 C 38.954305 70 30 61.04569 30 50 C 30 38.9543 38.954305 30 50 30 z M 90 90 L 110 90 C 121.0457 90 130 98.95428 130 110 C 130 121.0457 121.0457 130 110 130 C 98.954305 130 90 121.0457 90 110 L 90 90 z "
+         transform="translate(0,892.36218)"
+         id="path3820" />
     </g>
   </g>
 </svg>
