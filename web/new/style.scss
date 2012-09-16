@@ -1,19 +1,65 @@
+/*
+
+*/
+$maxContentWidth: 900px;
 
 
+/*
+	Grid system sizes
+*/
+$columnCount: 24;
+
+$gutterShare: 2;
+$columnShare: 3;
+
+$gutterWidth: 100% / $columnCount / ($gutterShare + $columnShare) * $gutterShare;
+$columnWidth: 100% / $columnCount / ($gutterShare + $columnShare) * $columnShare;
+
+$halfGutter: $gutterWidth / 2;
+
+
+@mixin innerWidth( $cols ){
+	width: $cols * ($columnWidth + $gutterWidth) - $gutterWidth;
+}
+
+
+@mixin outerWidth( $cols ){
+	width: $cols * ($columnWidth + $gutterWidth);
+}
+
+@mixin block( $cols ){
+	display: block;
+	@include innerWidth( $cols );
+	margin: $halfGutter;
+	padding: 0;
+	box-shadow: 0 4px 0 $shadowColor;
+}
+
+
+
+/*
+	Colours
+*/
 $bodyBgColor: #0a3616;
 $bodyFgColor: #1ee857;
 
 $accentBgColor: #521500;
 $accentFgColor: #ff6833;
 
-
 $shadowColor: #051b0b;
 
+/*
+	Common decorations
+*/
+
+@mixin blockBorder( $colour ){
+	border: 3px double $colour;
+}
 
 
-
-
-
+/*
+	Basic body styles
+*/
 body {
 	color: $bodyFgColor;
 	font-family: monospace;
@@ -24,50 +70,60 @@ a:link {
 	color: $accentFgColor;
 }
 
-.box {
-	margin: 0.5em auto 0.5em auto;
-	width: 600px;
-	background-color: $bodyBgColor;
-	border: 3px double $bodyFgColor;
-	box-shadow: 0 4px 0 $shadowColor;
-}
 
-h1 {
-	font-size: 1em;
-	margin: 0;
-	padding: 0.5em;
-	text-align: center;
-}
 
-nav {
+
+/*
+	Page header
+*/
+header {
 	display: block;
-	margin: 0.5em auto 0.5em auto;
-	width: 600px;
-
-	ul {
+	@include outerWidth( $columnCount );
+	max-width: $maxContentWidth;
+	margin: 0 auto;
+	
+	hgroup {
+		@include block( $columnCount );
+		
+		h1{
+			@include blockBorder( $bodyFgColor );
+			background-color: $bodyBgColor;	
+			font-size: 1em;
+			margin: 0;
+			padding: 0.5em;
+			text-align: center;
+		}	
+	}
+	
+	nav {
 		display: block;
 		margin: 0;
 		padding: 0;
-		list-style-type: none;
 		
-		li {
+		ul {
 			display: block;
-			width: 200px;
-			float: left;
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
 			
-			a {
-				display: block;
-				text-align: center;
-				margin: 0 0.5em 0 0.5em;
-				padding: 0.5em;
-				background-color: $accentBgColor;
-				border: 3px double $accentFgColor;
-				box-shadow: 0 4px 0 $shadowColor;
+			li {
+				@include block( 8 );
+				float: left;
+				
+				a {
+					display: block;
+					margin: 0;
+					padding: 0.5em;
+					@include blockBorder( $accentFgColor );
+					background-color: $accentBgColor;
+					text-align: center;
+				}	
 			}
-			
 		}
 	}
+	
 }
+
 
 
 
