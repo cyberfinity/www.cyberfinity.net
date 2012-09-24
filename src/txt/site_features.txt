@@ -1,0 +1,31 @@
+
+Site features:
+
+	* 100% valid (X)HTML
+		* semantic HTML5
+	* 100% valid CSS
+		* probably hard to achieve when using vendor prefixes
+	* WCAG 2.0 Rating: A - AAA
+	* Responsive design
+	* Favicon
+		* Apple touch icon(s)
+	* Rel Links
+		* Relative navigation
+		* Copyright, search etc.
+	* Language identifiers
+	* HTTP GZip compression
+	* Customised error pages (404, 500 etc.)
+	
+Site health checks:
+
+	* No broken internal links
+	* Average page size (incl. referenced files)
+	
+
+SEO features:
+
+	* Meta descr + keywords
+	* Sitemap.xml
+	* robots.txt
+	* Meta robot tags if necessary
+	
