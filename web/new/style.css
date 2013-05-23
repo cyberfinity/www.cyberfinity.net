@@ -42,6 +42,10 @@ header {
       margin: 0;
       padding: 0.5em;
       text-align: center; }
+      @media screen and (max-width: 450px) {
+        header hgroup h1 img {
+          width: 205px;
+          height: 84px; } }
   header nav {
     display: block;
     margin: 0;

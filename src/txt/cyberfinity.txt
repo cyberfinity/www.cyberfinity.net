@@ -1,0 +1,22 @@
+<home page intro>
+
+Welcome weary traveller.
+
+Cyberfinity is a little corner of cyberspace where miscellaneous websites owned or operated by X live. Each has its own subdomain and this site here is a handy directory to help you discover them.
+
+What are you waiting for? Go forth and explore!
+
+-------
+
+<about page>
+
+Although I have a personal website, I sometimes create web pages for other purposes which wouldn't be a natural fit within my own site. They range from experiments, to explore some new technology or a design idea, all the way to random pages about some in-joke amongst my friends. Additionally, I have a back catalogue of old websites that I'd like to preserve online for prosperity.
+
+Originally the URLs of these websites were scattered across a handful of domain names provided by DynDNS's free service. The great service they provide, which I am very grateful for and continue to use for other things, costs money to run though. It was therefore no surprise that, over the years, their policies changed and the number of freely available host names per account gradually diminished. Unfortunately for me, this did mean that URLs of some of my sites vanished.
+
+For a while I used an alternative provider (DynDNS.dk) to replace some of the lost domains but there was still the ever present risk that they might change their policies in a similar fashion. I could have paid DynDNS to carry on using their domain names, but decided this was the push I needed to go and buy a domain of my own. That way, once all my sites had migrated to new URLs under my own domain, I'd be able to guarantee their longevity (well, as long as I am around and able to pay the bills that is).
+
+The domain I eventually chose and purchased was cyberfinity.net - a portmanteau of "cyber" and "infinity". The "cyber" part is of course a nod to Cyberspace, a term that nowadays has a hint of corniness and, I would say, a bit of a retro vibe due to it's over(-mis-)use in popular media over the years. Nonetheless, I have a soft spot for it since it reminds me of the time I first got online and started making websites. That was in the late 1990's and there was a lot of talk of "Cyberspace" and "the Information Super Highway" (anyone remember that?).
+
+[explain infinity part]
+
