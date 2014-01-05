@@ -4,11 +4,13 @@ body {
   font-size: 12px;
   color: #523d48; }
 
-.bodySection {
+.bodySection, main {
   width: 90%;
   max-width: 400px;
   margin: 0 auto;
   padding: 0; }
+
+
 
 p, ul, ol {
   margin: 0 0 1em 0;
@@ -54,3 +56,27 @@ footer {
     .tmp li a {
       display: block;
       padding: 3px; }
+      
+ 
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+   
+tr {
+	background-color: #eee;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+thead tr:nth-child(odd), tbody tr:nth-child(even) {
+	background: none;
+}
+
+td, th {
+	padding: 0.4em;
+}
+
+td:nth-child(2) {
+	text-align: center;
+}
