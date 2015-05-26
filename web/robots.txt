@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /new/
+Disallow: /test/
 
 Sitemap: http://www.cyberfinity.net/sitemap.xml

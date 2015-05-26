@@ -64,6 +64,16 @@ header {
 		padding: 180px 0 0 0;
 		background: url('cyberfinity_logo.png') no-repeat 50% 0;	
 	}
+	
+	
+}
+
+header.plain {
+	
+	h1 {
+		padding-top: 0;
+		background: none;
+	}
 }
 
 footer {
