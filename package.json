@@ -1,0 +1,27 @@
+{
+  "name": "@cyberfinity/www",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Monorepo containing the packages that make up the www.cyberfinity.net website",
+  "main": "index.js",
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna run clean",
+    "build": "lerna run build",
+    "watch": "lerna run watch",
+    "test": "lerna run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "cyberfinity.net:/stuff/repos/git/sites/www.cyberfinity.net.git"
+  },
+  "keywords": [
+    "cyberfinity",
+    "website"
+  ],
+  "author": "James Nash (http://cirrus.twiddles.com/)",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "devDependencies": {
+    "lerna": "^3.8.4"
+  }
+}

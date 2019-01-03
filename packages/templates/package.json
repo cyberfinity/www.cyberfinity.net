@@ -1,0 +1,30 @@
+{
+  "name": "@cyberfinity/www-templates",
+  "private": true,
+  "version": "1.0.0",
+  "description": "HTML templates used by www.cyberfinity.net",
+  "main": "index.js",
+  "scripts": {
+    "clean": "gulp clean",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "cyberfinity.net:/stuff/repos/git/sites/www.cyberfinity.net.git"
+  },
+  "keywords": [
+    "ui",
+    "html",
+    "nunjucks",
+    "template",
+    "website"
+  ],
+  "author": "James Nash (http://cirrus.twiddles.com/)",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "devDependencies": {
+    "@cyberfinity/www-ui": "^1.0.0",
+    "@frctl/fractal": "^1.1.7",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0"
+  }
+}

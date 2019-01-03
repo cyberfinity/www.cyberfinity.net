@@ -1,0 +1,38 @@
+{
+  "name": "@cyberfinity/www-ui",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Front-end UI library used by www.cyberfinity.net",
+  "main": "build-api.js",
+  "files": [
+    "build-api.js",
+    "dist/",
+    "src/"
+  ],
+  "scripts": {
+    "clean": "gulp clean",
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "cyberfinity.net:/stuff/repos/git/sites/www.cyberfinity.net.git"
+  },
+  "keywords": [
+    "ui",
+    "sass",
+    "css",
+    "js",
+    "website"
+  ],
+  "author": "James Nash (http://cirrus.twiddles.com/)",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4"
+  }
+}
