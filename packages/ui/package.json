@@ -12,7 +12,7 @@
   "scripts": {
     "clean": "gulp clean",
     "build": "gulp build",
-    "watch": "gulp watch",
+    "start": "gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

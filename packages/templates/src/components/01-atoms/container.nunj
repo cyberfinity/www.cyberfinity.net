@@ -1,0 +1,5 @@
+<div class="container">
+  {% block containerContent %}
+    <p>Lorem ipsum, innit!</p>
+  {% endblock %}
+</div>

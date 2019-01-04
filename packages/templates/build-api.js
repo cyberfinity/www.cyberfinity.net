@@ -13,12 +13,21 @@ function distPath(...args) {
   return path.join(distDir, ...args);
 }
 
+const componentsDirname = 'components';
+const docsDirname = 'docs';
+const staticAssetsDirname = 'assets';
+
 module.exports = {
   // Source files
   srcDir,
   srcPath,
 
+  componentsDir: srcPath(componentsDirname),
+  docsDir: srcPath(docsDirname),
+
   // Build output files
   distDir,
   distPath,
+
+  staticAssetsDir: distPath(staticAssetsDirname),
 };

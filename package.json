@@ -8,7 +8,7 @@
     "bootstrap": "lerna bootstrap",
     "clean": "lerna run clean",
     "build": "lerna run build",
-    "watch": "lerna run watch",
+    "start": "lerna run --parallel start",
     "test": "lerna run test"
   },
   "repository": {
