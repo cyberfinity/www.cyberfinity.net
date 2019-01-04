@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const del = require('del');
+const rename = require('gulp-rename');
 const uiBldPaths = require('@cyberfinity/www-ui/build-api');
 
 const bldPaths = require('./build-api');
@@ -7,7 +8,10 @@ const fractal = require('./fractal');
 
 // Clean dist dir
 function clean() {
-  return del(bldPaths.distPath('*'));
+  return del([
+    bldPaths.distPath('*'),
+    bldPaths.staticAssetsDir
+  ]);
 }
 
 
@@ -65,16 +69,40 @@ function watchUiAssets(done) {
   gulp.watch(
     uiBldPaths.distPath('**', '*'),
     copyUiAssets
-  )
+  );
+  done();
 }
 
 
+function copyPreviewAssets() {
+  return gulp.src(bldPaths.previewPath('**', '*'))
+    .pipe(rename({
+      dirname: 'preview'
+    }))
+    .pipe(gulp.dest(bldPaths.staticAssetsDir));
+}
 
-const build = gulp.series(copyUiAssets, buildPatternLibrary);
+
+function watchPreviewAssets(done) {
+  gulp.watch(
+    bldPaths.previewPath('**', '*'),
+    copyPreviewAssets
+  );
+  done();
+}
 
 
-const start = gulp.series(copyUiAssets, gulp.parallel(
+const copyAssets = gulp.parallel(
+  copyUiAssets,
+  copyPreviewAssets
+);
+
+const build = gulp.series(copyAssets, buildPatternLibrary);
+
+
+const start = gulp.series(copyAssets, gulp.parallel(
   watchUiAssets,
+  watchPreviewAssets,
   startPatternLibrary
 ));
 
