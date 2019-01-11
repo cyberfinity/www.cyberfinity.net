@@ -10,12 +10,12 @@ const fractal = require('./fractal');
 function clean() {
   return del([
     bldPaths.distPath('*'),
-    bldPaths.staticAssetsDir
+    bldPaths.staticAssetsDir,
   ]);
 }
 
-
-const logger = fractal.cli.console; // keep a reference to the fractal CLI console utility
+// keep a reference to the fractal CLI console utility
+const logger = fractal.cli.console;
 
 /*
  * Start the Fractal server
@@ -26,14 +26,17 @@ const logger = fractal.cli.console; // keep a reference to the fractal CLI conso
  *
  * This task will also log any errors to the console.
  */
-function startPatternLibrary(){
+async function startPatternLibrary() {
   const server = fractal.web.server({
-    sync: true
+    sync: true,
   });
-  server.on('error', err => logger.error(err.message));
-  return server.start().then(() => {
-      logger.success(`Fractal server is now running at ${server.url}`);
+
+  server.on('error', (err) => {
+    return logger.error(err.message);
   });
+
+  await server.start();
+  logger.success(`Fractal server is now running at ${server.url}`);
 }
 startPatternLibrary.displayName = 'fractal:start';
 
@@ -47,16 +50,20 @@ startPatternLibrary.displayName = 'fractal:start';
  * The build destination will be the directory specified in the 'builder.dest'
  * configuration option set above.
  */
-function buildPatternLibrary(){
+async function buildPatternLibrary() {
   const builder = fractal.web.builder();
-  builder.on('progress', (completed, total) => logger.update(`Exported ${completed} of ${total} items`, 'info'));
-  builder.on('error', err => logger.error(err.message));
-  return builder.build().then(() => {
-      logger.success('Fractal build completed!');
+
+  builder.on('progress', (completed, total) => {
+    return logger.update(`Exported ${completed} of ${total} items`, 'info');
   });
+  builder.on('error', (err) => {
+    return logger.error(err.message);
+  });
+
+  await builder.build();
+  logger.success('Fractal build completed!');
 }
 buildPatternLibrary.displayName = 'fractal:build';
-
 
 
 function copyUiAssets() {
@@ -77,7 +84,7 @@ function watchUiAssets(done) {
 function copyPreviewAssets() {
   return gulp.src(bldPaths.previewPath('**', '*'))
     .pipe(rename({
-      dirname: 'preview'
+      dirname: 'preview',
     }))
     .pipe(gulp.dest(bldPaths.staticAssetsDir));
 }
@@ -107,7 +114,7 @@ const start = gulp.series(copyAssets, gulp.parallel(
 ));
 
 module.exports = {
-  clean,
   build,
-  start
+  clean,
+  start,
 };

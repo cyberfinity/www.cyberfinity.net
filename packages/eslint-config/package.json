@@ -1,0 +1,31 @@
+{
+  "name": "@cyberfinity/eslint-config",
+  "version": "1.0.0",
+  "description": "Shared ESLint config for Cyberfinity JS projects.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "cyberfinity.net:/stuff/repos/git/sites/www.cyberfinity.net.git"
+  },
+  "keywords": [
+    "eslint",
+    "config",
+    "cyberfinty",
+    "code-style"
+  ],
+  "author": "James Nash (http://cirrus.twiddles.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "eslint-config-canonical": "^16.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0"
+  },
+  "peerDependencies": {
+    "eslint": ">= 5",
+    "eslint-config-canonical": "^16.0.0"
+  }
+}

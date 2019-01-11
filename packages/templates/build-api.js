@@ -19,18 +19,15 @@ const docsDirname = 'docs';
 const previewDirname = 'preview';
 
 module.exports = {
-  // Source files
-  srcDir,
-  srcPath,
-
   componentsDir: srcPath(componentsDirname),
-  docsDir: srcPath(docsDirname),
-  previewDir: srcPath(previewDirname),
-  previewPath: (...args) => srcPath(previewDirname, ...args),
-
-  // Build output files
   distDir,
   distPath,
-
+  docsDir: srcPath(docsDirname),
+  previewDir: srcPath(previewDirname),
+  previewPath: (...args) => {
+    return srcPath(previewDirname, ...args);
+  },
+  srcDir,
+  srcPath,
   staticAssetsDir,
 };

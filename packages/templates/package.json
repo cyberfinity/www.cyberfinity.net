@@ -8,7 +8,8 @@
     "clean": "gulp clean",
     "build": "gulp build",
     "start": "gulp start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./*.js"
   },
   "repository": {
     "type": "git",
@@ -24,10 +25,13 @@
   "author": "James Nash (http://cirrus.twiddles.com/)",
   "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
+    "@cyberfinity/eslint-config": "^1.0.0",
     "@cyberfinity/www-ui": "^1.0.0",
     "@frctl/fractal": "^1.1.7",
     "@frctl/nunjucks": "^1.0.3",
     "del": "^3.0.0",
+    "eslint": "^5.11.1",
+    "eslint-config-canonical": "^16.0.0",
     "gulp": "^4.0.0",
     "gulp-rename": "^1.4.0"
   }

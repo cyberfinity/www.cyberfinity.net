@@ -14,6 +14,7 @@
     "build": "gulp build",
     "start": "gulp watch",
     "lint:js": "eslint ./*.js",
+    "lint": "npm run lint:js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,9 +31,10 @@
   "author": "James Nash (http://cirrus.twiddles.com/)",
   "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
+    "@cyberfinity/eslint-config": "^1.0.0",
     "del": "^3.0.0",
     "eslint": "^5.11.1",
-    "eslint-config-canonical": "^15.1.1",
+    "eslint-config-canonical": "^16.0.0",
     "gulp": "^4.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
