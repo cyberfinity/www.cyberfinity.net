@@ -13,6 +13,7 @@
     "clean": "gulp clean",
     "build": "gulp build",
     "start": "gulp watch",
+    "lint:js": "eslint ./*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,6 +31,8 @@
   "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
     "del": "^3.0.0",
+    "eslint": "^5.11.1",
+    "eslint-config-canonical": "^15.1.1",
     "gulp": "^4.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",

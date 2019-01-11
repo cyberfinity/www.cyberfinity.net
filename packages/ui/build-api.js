@@ -1,6 +1,6 @@
 const path = require('path');
 
-const pkgDir = __dirname;
+const pkgDir = __dirname; // eslint-disable-line id-match
 
 const srcDir = path.join(pkgDir, 'src');
 const distDir = path.join(pkgDir, 'dist');
@@ -23,17 +23,14 @@ const cssFilebase = 'style';
 
 
 module.exports = {
-  // Source files
-  srcDir,
-
-  sassPath: (...args) => srcPath(sassDirname, ...args),
-  sassMainFile: srcPath(sassDirname, sassMainFilename),
-
-  // Build output files
+  cssDir: distPath(cssDirname),
+  cssFile: distPath(cssDirname, cssFilebase),
+  cssFilebase,
   distDir,
   distPath,
-
-  cssDir: distPath(cssDirname),
-  cssFilebase,
-  cssFile: distPath(cssDirname, cssFilebase),
+  sassMainFile: srcPath(sassDirname, sassMainFilename),
+  sassPath: (...args) => {
+    return srcPath(sassDirname, ...args);
+  },
+  srcDir,
 };

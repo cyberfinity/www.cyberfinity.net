@@ -18,7 +18,7 @@ function buildCss() {
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(rename({
-      basename: bldPaths.cssFilebase
+      basename: bldPaths.cssFilebase,
     }))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(bldPaths.cssDir));
@@ -43,9 +43,8 @@ const watch = gulp.series(build, watchSass);
 
 
 module.exports = {
-  clean,
   build,
-  watch,
-
+  clean,
   default: build,
+  watch,
 };
