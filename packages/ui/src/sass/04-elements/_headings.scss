@@ -1,0 +1,34 @@
+h1,
+h2,
+h3,
+h4 {
+  font-family: $cy-font-family-accent;
+  font-weight: normal;
+}
+
+h1 {
+  @include cy-font-and-line(3);
+}
+
+h2 {
+  @include cy-font-and-line(2);
+}
+
+h3 {
+  @include cy-font-and-line(1);
+}
+
+h4,
+h5,
+h6 {
+  @include cy-font-and-line(0, true);
+}
+
+h5,
+h6 {
+  text-decoration: underline;
+}
+
+h6 {
+  font-weight: normal;
+}

@@ -1,13 +1,8 @@
 {
   "status": "wip",
   "context": {
-    "title": "Hello World",
-    "subtitle": "The archetypal greeting",
-    "text": "Lorem ipsum sit dolar amet",
-    "url": "#",
-    "link": {
-      "text": "Click me!",
-      "url": "#"
-    }
+    "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dapibus justo quis efficitur vestibulum.",
+    "url": "#"
   }
 }

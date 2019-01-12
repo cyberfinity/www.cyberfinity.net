@@ -1,7 +1,7 @@
 body {
   background: $cy-co-bg url('../img/circuit.gif');
   color: $cy-co-fg;
-  font-family: 'Press Start 2P', monospace;
+  font-family: $cy-font-family;
   image-rendering: crisp-edges;
   line-height: $cy-line-height-base;
 }

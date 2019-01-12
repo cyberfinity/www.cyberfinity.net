@@ -1,0 +1,81 @@
+
+/*
+  Calculates the font-size at a given step.
+
+  Uses a linear scale for successive font sizes.
+
+  At the default 1rem (typically = 16px) size, it's features
+  are at least 2px thick. So, we can use 0.5rem increments and
+  every resulting size will align perfectly with the viewport's
+  pixel grid.
+*/
+@function cy-font-size($step: 0) {
+  $base-size: 1rem;
+  $increment: 0.5rem;
+  @return $base-size + ($step * $increment);
+}
+
+/*
+  Calculates the appropriate line-height for text sized at a
+  given step.
+
+  Works out the smallest multiple of the base lineheight that can
+  "fit" text at the corresponding font-size.
+*/
+@function cy-line-height($step: 0) {
+  $font-size: cy-font-size($step);
+  $multiplier: floor($font-size / $cy-line-height-base) + 1;
+  @return $cy-line-height-base * $multiplier;
+}
+
+
+/**
+  Calculates the distance from the bottom of the line-height to
+  the baseline for the accent font.
+*/
+@function cy-accent-font-baseline-from-bottom($step: 0) {
+  // For "Press Start 2P" (our accent font), the baseline is
+  // 2 16ths from the bottom of the inline text area.
+  $baseline-bottom-offset-ratio: 1 / 16 * 2;
+
+  $font-size: cy-font-size($step);
+  $line-height: cy-line-height($step);
+
+  $bottom-excess-line-height: ($line-height - $font-size) / 2;
+  $baseline-bottom-offset: $font-size * $baseline-bottom-offset-ratio;
+
+  @return $bottom-excess-line-height + $baseline-bottom-offset;
+}
+
+/**
+  Calculates distance that text in the accent font needs to be shifted
+  down, so that its baseline aligns with the baseline of the default
+  font size (1rem).
+*/
+@function cy-accent-font-vertical-shift($step: 0) {
+  $baseline-offset-base: cy-accent-font-baseline-from-bottom();
+  $baseline-offset: cy-accent-font-baseline-from-bottom($step);
+
+  @return $baseline-offset - $baseline-offset-base;
+}
+
+/**
+  Emits font-size and/or line-height properties as needed
+  for the give step.
+*/
+@mixin cy-font-and-line($step: 0, $force: false) {
+  @if $force or $step != 0 {
+    font-size: cy-font-size($step);
+  }
+
+  $line-height: cy-line-height($step);
+  @if $line-height != $cy-line-height-base {
+    line-height: $line-height;
+  }
+
+  $shift: cy-accent-font-vertical-shift($step);
+  @if $shift != 0 {
+    padding-top: $shift;
+    margin-bottom: -1 * $shift;
+  }
+}

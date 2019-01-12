@@ -9,7 +9,7 @@ $pr-co-accent: #f00;
 
 .preview-body {
   background-color: $pr-co-grey;
-  padding: $cy-sp-md;
+  padding: $cy-line-height-base;
 }
 
 .preview-body--vertical-rythmn {
@@ -21,17 +21,9 @@ $pr-co-accent: #f00;
     color from the bottom of the band up to the baseline.
   */
 
-  // The amount of "empty" line height above and below the text
-  $line-height-excess: ($cy-sp-md - 1rem) / 2; // rem
-
-  // How far away from the bottom of the inline text box the baseline
-  // is
-  $baseline-inline-bottom-offset: 1rem / 16 * 2; // rem
-
   // How far away from top of line-height the baseline is, expressed
   // as a fraction
-  $baseline-top-offset: ($cy-sp-md - $line-height-excess - $baseline-inline-bottom-offset) / $cy-sp-md;
-
+  $baseline-top-offset: ($cy-line-height-base - cy-accent-font-baseline-from-bottom()) / $cy-line-height-base;
 
   background-image: linear-gradient(
     $pr-co-grey-dark,
@@ -44,11 +36,11 @@ $pr-co-accent: #f00;
     mix($pr-co-grey-light, $pr-co-accent, 80%)
   );
   background-repeat: repeat-y;
-  background-size: 100% (2 * $cy-sp-md);
+  background-size: 100% (2 * $cy-line-height-base);
 }
 
 .preview-body--checkerboard {
   background-image: url('./assets/checkerboard.png');
   background-repeat: repeat;
-  background-size: (2 * $cy-sp-md) (2 * $cy-sp-md);
+  background-size: (2 * $cy-line-height-base) (2 * $cy-line-height-base);
 }

@@ -1,2 +1,27 @@
-$cy-font-size-base: 1rem;
-$cy-line-height-base: 1.5;
+/*
+  Base line-height.
+
+  This is a key property of Cyberfinity's design. Most sizes will
+  be derived from this, ensuring the text and elements align to a
+  strict, vertical rythmn.
+*/
+$cy-line-height-base: 1.5rem;
+
+/*
+  Main font family used for body text.
+
+  This is a stack of common, monospace system fonts.
+
+  Inspired by:
+  - https://www.client9.com/css-system-font-stack-monospace-v1/
+  - https://www.client9.com/css-system-font-stack-monospace-v2/
+*/
+$cy-font-family: Menlo, Consolas, monospace;
+
+/**
+  Accent font family for headings and other text that
+  needs to stand out.
+
+  Uses main, monospace font stack as its fallback.
+*/
+$cy-font-family-accent: 'Press Start 2P', #{$cy-font-family};
