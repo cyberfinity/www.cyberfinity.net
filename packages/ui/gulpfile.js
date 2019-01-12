@@ -35,11 +35,30 @@ function watchSass(done) {
 }
 
 
+// Copy images
+function copyImages() {
+  return gulp.src(bldPaths.imageDir('**', '*'))
+    .pipe(gulp.dest(bldPaths.distPath(bldPaths.imageDirname)));
+}
+
+// Watch image sources and copy on changes
+function watchImages(done) {
+  gulp.watch(
+    bldPaths.imageDir('**', '*'),
+    copyImages
+  );
+  done();
+}
+
+
 // Build all the things!
-const build = buildCss;
+const build = gulp.parallel(buildCss, copyImages);
 
 // Warch all the things!
-const watch = gulp.series(build, watchSass);
+const watch = gulp.series(build, gulp.parallel(
+  watchSass,
+  watchImages
+));
 
 
 module.exports = {

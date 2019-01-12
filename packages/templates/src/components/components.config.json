@@ -1,6 +1,6 @@
 {
+  "status": "wip",
   "context": {
-    "classPrefix": "cy-",
     "title": "Hello World",
     "subtitle": "The archetypal greeting",
     "text": "Lorem ipsum sit dolar amet",

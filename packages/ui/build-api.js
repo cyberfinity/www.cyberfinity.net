@@ -21,6 +21,8 @@ const sassMainFilename = 'index.scss';
 const cssDirname = 'css';
 const cssFilebase = 'style';
 
+// Image stuff
+const imageDirname = 'img';
 
 module.exports = {
   cssDir: distPath(cssDirname),
@@ -28,6 +30,10 @@ module.exports = {
   cssFilebase,
   distDir,
   distPath,
+  imageDir: (...args) => {
+    return srcPath(imageDirname, ...args);
+  },
+  imageDirname,
   sassMainFile: srcPath(sassDirname, sassMainFilename),
   sassPath: (...args) => {
     return srcPath(sassDirname, ...args);

@@ -17,17 +17,28 @@ function distPath(...args) {
 const componentsDirname = 'components';
 const docsDirname = 'docs';
 const previewDirname = 'preview';
+const assetsDirname = 'assets';
+
+const sassMainFilename = 'preview.scss';
+
+function previewPath(...args) {
+  return srcPath(previewDirname, ...args);
+}
 
 module.exports = {
+  assetsDirname,
   componentsDir: srcPath(componentsDirname),
   distDir,
   distPath,
   docsDir: srcPath(docsDirname),
   previewDir: srcPath(previewDirname),
-  previewPath: (...args) => {
-    return srcPath(previewDirname, ...args);
-  },
+  previewDirname,
+  previewPath,
+  sassMainFile: previewPath(sassMainFilename),
   srcDir,
   srcPath,
   staticAssetsDir,
+  staticAssetsPath: (...args) => {
+    return path.join(staticAssetsDir, ...args);
+  },
 };

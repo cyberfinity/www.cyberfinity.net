@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link media="all" rel="stylesheet" href="{{ '/css/style.css' | path }}">
   <link media="all" rel="stylesheet" href="{{ '/preview/preview.css' | path }}">
-  <title>Preview Layout</title>
+  <title>{{ _target.title }}</title>
 </head>
-<body class="preview-body preview-body--checkerboard">
+<body class="preview-body preview-body--{{ previewBodyModifier if previewBodyModifier else 'checkerboard' }}">
   {{ yield | safe }}
 </body>
 </html>

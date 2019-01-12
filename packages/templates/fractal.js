@@ -53,4 +53,19 @@ fractal.web.set('static.path', bldPaths.staticAssetsDir);
 /* Tell Fractal which directory to build static HTML output to */
 fractal.web.set('builder.dest', bldPaths.distDir);
 
+/* Tweak BrowserSync config */
+fractal.web.set('server.syncOptions', {
+  snippetOptions: {
+    // Make BrowerSync JS snippet get appended
+    // to <head> instead of <body>, so that it doesn't
+    // interfere with our * + * CSS rules.
+    rule: {
+      fn(snippet, match) {
+        return snippet + match;
+      },
+      match: /<\/head>/i,
+    },
+  },
+});
+
 module.exports = fractal;

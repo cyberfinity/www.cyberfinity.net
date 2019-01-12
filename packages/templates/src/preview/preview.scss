@@ -1,0 +1,19 @@
+// Shared stuff from www-ui
+@import 'shared';
+
+.preview-body {
+  background-color: #777;
+  padding: ($cy-line-height-base * 1rem);
+}
+
+.preview-body--vertical-rythmn {
+  background-image: linear-gradient(#555, #555 50%, #999 50%, #999);
+  background-repeat: repeat-y;
+  background-size: 100% (1rem / 4);
+}
+
+.preview-body--checkerboard {
+  background-image: url('./checkerboard.png');
+  background-repeat: repeat;
+  background-size: 32px 32px;
+}

@@ -1,6 +1,8 @@
 const gulp = require('gulp');
 const del = require('del');
 const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
 const uiBldPaths = require('@cyberfinity/www-ui/build-api');
 
 const bldPaths = require('./build-api');
@@ -82,18 +84,42 @@ function watchUiAssets(done) {
 
 
 function copyPreviewAssets() {
-  return gulp.src(bldPaths.previewPath('**', '*'))
-    .pipe(rename({
-      dirname: 'preview',
-    }))
-    .pipe(gulp.dest(bldPaths.staticAssetsDir));
+  return gulp.src(bldPaths.previewPath(bldPaths.assetsDirname, '**', '*'))
+    .pipe(gulp.dest(bldPaths.staticAssetsPath(bldPaths.previewDirname, bldPaths.assetsDirname)));
 }
 
 
 function watchPreviewAssets(done) {
   gulp.watch(
-    bldPaths.previewPath('**', '*'),
+    bldPaths.previewPath(bldPaths.assetsDirname, '**', '*'),
     copyPreviewAssets
+  );
+  done();
+}
+
+
+// Build CSS from SASS
+function buildPreviewCss() {
+  return gulp.src(bldPaths.sassMainFile)
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      includePaths: [
+        uiBldPaths.sassPath()
+      ]
+    }))
+    .pipe(rename({
+      dirname: bldPaths.previewDirname,
+    }))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(bldPaths.staticAssetsDir));
+}
+
+
+// Watch SASS sources and rebuild CSS on changes
+function watchPreviewSass(done) {
+  gulp.watch(
+    bldPaths.previewPath('**', '*.scss'),
+    buildPreviewCss
   );
   done();
 }
@@ -101,6 +127,7 @@ function watchPreviewAssets(done) {
 
 const copyAssets = gulp.parallel(
   copyUiAssets,
+  buildPreviewCss,
   copyPreviewAssets
 );
 
@@ -109,6 +136,7 @@ const build = gulp.series(copyAssets, buildPatternLibrary);
 
 const start = gulp.series(copyAssets, gulp.parallel(
   watchUiAssets,
+  watchPreviewSass,
   watchPreviewAssets,
   startPatternLibrary
 ));

@@ -4,10 +4,11 @@
   "version": "1.0.0",
   "description": "Front-end UI library used by www.cyberfinity.net",
   "main": "build-api.js",
+  "style": "src/sass/index.scss",
   "files": [
     "build-api.js",
     "dist/",
-    "src/"
+    "src/sass/"
   ],
   "scripts": {
     "clean": "gulp clean",
