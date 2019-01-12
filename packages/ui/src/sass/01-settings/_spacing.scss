@@ -2,7 +2,7 @@ $cy-sp-multiplier: 2;
 
 // Medium is the "base" size from which all others
 // are calculated:
-$cy-sp-md: 1rem;
+$cy-sp-md: ($cy-line-height-base * 1rem);
 
 $cy-sp-sm: $cy-sp-md / $cy-sp-multiplier;
 $cy-sp-xs: $cy-sp-sm / $cy-sp-multiplier;

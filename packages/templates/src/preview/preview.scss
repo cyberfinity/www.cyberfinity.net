@@ -1,19 +1,54 @@
 // Shared stuff from www-ui
 @import 'shared';
 
+$pr-co-grey: #777;
+$pr-co-grey-light: #555;
+$pr-co-grey-dark: #999;
+
+$pr-co-accent: #f00;
+
 .preview-body {
-  background-color: #777;
-  padding: ($cy-line-height-base * 1rem);
+  background-color: $pr-co-grey;
+  padding: $cy-sp-md;
 }
 
 .preview-body--vertical-rythmn {
-  background-image: linear-gradient(#555, #555 50%, #999 50%, #999);
+  /*
+    Create horizontal bands to visualise the line-height.
+
+    Each band (light or dark grey) is 1x line-height. Within that
+    we also want to visualise the baseline by overlaying an accent
+    color from the bottom of the band up to the baseline.
+  */
+
+  // The amount of "empty" line height above and below the text
+  $line-height-excess: ($cy-sp-md - 1rem) / 2; // rem
+
+  // How far away from the bottom of the inline text box the baseline
+  // is
+  $baseline-inline-bottom-offset: 1rem / 16 * 2; // rem
+
+  // How far away from top of line-height the baseline is, expressed
+  // as a fraction
+  $baseline-top-offset: ($cy-sp-md - $line-height-excess - $baseline-inline-bottom-offset) / $cy-sp-md;
+
+
+  background-image: linear-gradient(
+    $pr-co-grey-dark,
+    $pr-co-grey-dark ($baseline-top-offset * 50%),
+    mix($pr-co-grey-dark, $pr-co-accent, 80%) ($baseline-top-offset * 50%),
+    mix($pr-co-grey-dark, $pr-co-accent, 80%) 50%,
+    $pr-co-grey-light 50%,
+    $pr-co-grey-light (50% + $baseline-top-offset * 50%),
+    mix($pr-co-grey-light, $pr-co-accent, 80%) (50% + $baseline-top-offset * 50%),
+    mix($pr-co-grey-light, $pr-co-accent, 80%)
+  );
   background-repeat: repeat-y;
-  background-size: 100% (1rem / 4);
+  background-size: 100% (2 * $cy-sp-md);
 }
 
 .preview-body--checkerboard {
-  background-image: url('./checkerboard.png');
+  background-image: url('./assets/checkerboard.png');
   background-repeat: repeat;
-  background-size: 32px 32px;
+  background-size: (2 * $cy-sp-md) (2 * $cy-sp-md);
 }
