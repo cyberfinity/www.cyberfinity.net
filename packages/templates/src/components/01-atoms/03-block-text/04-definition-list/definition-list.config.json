@@ -1,0 +1,33 @@
+{
+  "context": {
+    "definitions": [
+      {
+        "terms": [
+          "Aardvark",
+          "African ant bear",
+          "Anteater"
+        ],
+        "descriptions": [
+          "The aardvark is a medium-sized, burrowing, nocturnal mammal native to Africa."
+        ]
+      },
+      {
+        "terms": [
+          "Bog"
+        ],
+        "descriptions": [
+          "A swamp.",
+          "Slang for toilet."
+        ]
+      },
+      {
+        "terms": [
+          "Cirrus"
+        ],
+        "descriptions": [
+          "Cirrus is a genus of atmospheric cloud generally characterized by thin, wispy strands, giving the type its name from the Latin word cirrus, meaning a ringlet or curling lock of hair. This cloud can form at any altitude between 16,500 ft and 45,000 ft above sea level."
+        ]
+      }
+    ]
+  }
+}

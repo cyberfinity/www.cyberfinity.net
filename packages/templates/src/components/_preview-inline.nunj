@@ -1,0 +1,11 @@
+{% extends '@preview' %}
+
+{% set previewBodyModifier = 'vertical-rythmn' %}
+
+{% block previewBody %}
+<h2>Raw example:</h2>
+<p>{{ yield | safe }}</p>
+
+<h2>In-context examples:</h2>
+<p>Aliquam sed odio sit {{ yield | safe }}. Morbi pharetra sagittis est a elementum. Mauris tincidunt aliquet {{ yield | safe }} faucibus.</p>
+{% endblock %}

@@ -8,6 +8,8 @@
   <title>{{ _target.title }}</title>
 </head>
 <body class="preview-body preview-body--{{ previewBodyModifier if previewBodyModifier else 'checkerboard' }}">
+{% block previewBody %}
   {{ yield | safe }}
+{% endblock %}
 </body>
 </html>
