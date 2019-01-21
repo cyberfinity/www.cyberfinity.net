@@ -1,0 +1,36 @@
+{
+  "name": "@cyberfinity/www-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Website content and HTML generation scripts.",
+  "main": "index.js",
+  "scripts": {
+    "clean": "gulp clean",
+    "build": "gulp build",
+    "start": "gulp start",
+    "lint:js": "eslint './*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "cyberfinity.net:/stuff/repos/git/sites/www.cyberfinity.net.git"
+  },
+  "keywords": [
+    "website",
+    "static",
+    "html",
+    "11ty",
+    "eleventy"
+  ],
+  "author": "James Nash (http://cirrus.twiddles.com/)",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.7.1",
+    "@cyberfinity/eslint-config": "^1.0.0",
+    "@cyberfinity/www-ui": "^1.0.0",
+    "del": "^3.0.0",
+    "eslint": "^5.12.1",
+    "eslint-config-canonical": "^16.0.0",
+    "gulp": "^4.0.0",
+    "gulp-shell": "^0.6.5"
+  }
+}
