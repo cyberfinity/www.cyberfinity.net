@@ -39,6 +39,7 @@ async function startPatternLibrary() {
 
   await server.start();
   logger.success(`Fractal server is now running at ${server.url}`);
+  logger.success(`Network URL: ${server.urls.sync.external}`);
 }
 startPatternLibrary.displayName = 'fractal:start';
 
