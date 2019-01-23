@@ -39,7 +39,7 @@ fractal.components.engine(nunj({
 }));
 
 // look for files with a .nunj file extension
-fractal.components.set('ext', '.nunj');
+fractal.components.set('ext', '.njk');
 
 
 /* Tell Fractal where the documentation pages will live */
