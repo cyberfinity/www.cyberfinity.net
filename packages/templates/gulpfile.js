@@ -69,6 +69,12 @@ async function buildPatternLibrary() {
 buildPatternLibrary.displayName = 'fractal:build';
 
 
+function exportTemplates(done) {
+  fractal.cli.exec('export');
+  done();
+}
+
+
 function copyUiAssets() {
   return gulp.src(uiBldPaths.distPath('**', '*'))
     .pipe(gulp.dest(bldPaths.staticAssetsDir));
@@ -132,7 +138,10 @@ const copyAssets = gulp.parallel(
   copyPreviewAssets
 );
 
-const build = gulp.series(copyAssets, buildPatternLibrary);
+const build = gulp.parallel(
+  gulp.series(copyAssets, buildPatternLibrary),
+  exportTemplates
+);
 
 
 const start = gulp.series(copyAssets, gulp.parallel(

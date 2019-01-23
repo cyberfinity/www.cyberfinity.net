@@ -18,6 +18,8 @@ const componentsDirname = 'components';
 const docsDirname = 'docs';
 const previewDirname = 'preview';
 const assetsDirname = 'assets';
+const patternLibraryDirname = 'pattern-library';
+const templatesDirname = 'templates';
 
 const sassMainFilename = 'preview.scss';
 
@@ -30,6 +32,8 @@ module.exports = {
   componentsDir: srcPath(componentsDirname),
   distDir,
   distPath,
+  distPatternLibraryDir: distPath(patternLibraryDirname),
+  distTemplatesDir: distPath(templatesDirname),
   docsDir: srcPath(docsDirname),
   previewDir: srcPath(previewDirname),
   previewDirname,

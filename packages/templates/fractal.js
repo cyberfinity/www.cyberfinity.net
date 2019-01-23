@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+const makeDir = require('make-dir');
 const fractal = require('@frctl/fractal').create();
 const nunj = require('@frctl/nunjucks');
 
@@ -51,7 +54,7 @@ fractal.docs.set('ext', '.md');
 fractal.web.set('static.path', bldPaths.staticAssetsDir);
 
 /* Tell Fractal which directory to build static HTML output to */
-fractal.web.set('builder.dest', bldPaths.distDir);
+fractal.web.set('builder.dest', bldPaths.distPatternLibraryDir);
 
 /* Tweak BrowserSync config */
 fractal.web.set('server.syncOptions', {
@@ -67,5 +70,55 @@ fractal.web.set('server.syncOptions', {
     },
   },
 });
+
+
+// Add template export function
+// Based on example in Fractal docs:
+// https://fractal.build/guide/integration/including-as-dependency.html#_3-next-steps
+
+/*
+ * Fractal export command.
+ *
+ * Exports all view templates into a"templates"directory within the build output directory.
+ * Templates are exported in a flat structure with the filenames in the format of {handle}.{ext}
+ *
+ * Any @handle references in the templates (for partial includes etc) are re-written
+ * to reference the appropriate template path.
+ *
+ * Run by using the command `fractal export` in the root of the project directory.
+ */
+function exportTemplates(args, done) {
+
+    const app = this.fractal;
+    const items = app.components.flattenDeep().toArray();
+    const jobs = [];
+
+    return makeDir(bldPaths.distTemplatesDir).then(() => {
+
+      for (const item of items) {
+
+        const exportPath = path.join(bldPaths.distTemplatesDir, `${item.alias || item.handle}${app.get('components.ext')}`);
+        const job = item.getContent().then(str => {
+            return str.replace(/\@([0-9a-zA-Z\-\_]*)/g, function(match, handle){
+                return `./${handle}${app.get('components.ext')}`;
+            });
+        }).then(str => {
+            return fs.writeFileSync(exportPath, str);
+        });
+
+        jobs.push(job);
+      }
+
+      return Promise.all(jobs).then(() => {
+        fractal.cli.log(`⚑ Exported ${jobs.length} templates`);
+      });
+    });
+}
+
+fractal.cli.command('export', exportTemplates,  {
+    description: 'Export all component templates'
+});
+
+
 
 module.exports = fractal;
