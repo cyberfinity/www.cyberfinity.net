@@ -14,7 +14,10 @@ module.exports = function(eleventyConfig) {
 
       // ...then look in local templates dir
       bldPaths.srcPath(bldPaths.srcTemplateDirname),
-    ])
+    ],
+    {
+      noCache: true // works better when watching
+    })
   ]);
   eleventyConfig.setLibrary("njk", nunjucksEnvironment);
 
