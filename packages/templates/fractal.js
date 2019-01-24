@@ -89,6 +89,7 @@ fractal.web.set('server.syncOptions', {
  */
 function exportTemplates(args, done) {
 
+    const filenamePrefix = '@';
     const app = this.fractal;
     const items = app.components.flattenDeep().toArray();
     const jobs = [];
@@ -97,10 +98,10 @@ function exportTemplates(args, done) {
 
       for (const item of items) {
 
-        const exportPath = path.join(bldPaths.distTemplatesDir, `${item.alias || item.handle}${app.get('components.ext')}`);
+        const exportPath = path.join(bldPaths.distTemplatesDir, `${filenamePrefix}${item.alias || item.handle}${app.get('components.ext')}`);
         const job = item.getContent().then(str => {
             return str.replace(/\@([0-9a-zA-Z\-\_]*)/g, function(match, handle){
-                return `./${handle}${app.get('components.ext')}`;
+                return `./${filenamePrefix}${handle}${app.get('components.ext')}`;
             });
         }).then(str => {
             return fs.writeFileSync(exportPath, str);
