@@ -14,11 +14,15 @@ function distPath(...args) {
 }
 
 const styleDirname = 'style';
+const srcTemplateDirname = 'templates';
+const srcDataDirname = 'data';
 
 module.exports = {
   distDir,
   distPath,
+  srcDataDirname,
   srcDir,
   srcPath,
+  srcTemplateDirname,
   styleDistDir: distPath(styleDirname),
 };
