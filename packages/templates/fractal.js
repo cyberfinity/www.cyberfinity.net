@@ -88,16 +88,16 @@ fractal.web.set('server.syncOptions', {
  * Run by using the command `fractal export` in the root of the project directory.
  */
 function exportTemplates(args, done) {
+  const filenamePrefix = '@';
+  const app = this.fractal;
+  const items = app.components.flattenDeep().toArray();
+  const jobs = [];
 
-    const filenamePrefix = '@';
-    const app = this.fractal;
-    const items = app.components.flattenDeep().toArray();
-    const jobs = [];
+  return makeDir(bldPaths.distTemplatesDir).then(() => {
 
-    return makeDir(bldPaths.distTemplatesDir).then(() => {
+    for (const item of items) {
 
-      for (const item of items) {
-
+      if (!item.isHidden) {
         const exportPath = path.join(bldPaths.distTemplatesDir, `${filenamePrefix}${item.alias || item.handle}${app.get('components.ext')}`);
         const job = item.getContent().then(str => {
             return str.replace(/\@([0-9a-zA-Z\-\_]*)/g, function(match, handle){
@@ -109,11 +109,12 @@ function exportTemplates(args, done) {
 
         jobs.push(job);
       }
+    }
 
-      return Promise.all(jobs).then(() => {
-        fractal.cli.log(`⚑ Exported ${jobs.length} templates`);
-      });
+    return Promise.all(jobs).then(() => {
+      fractal.cli.log(`⚑ Exported ${jobs.length} templates`);
     });
+  });
 }
 
 fractal.cli.command('export', exportTemplates,  {
