@@ -1,6 +1,7 @@
 const fs = require('fs');
-const { promisify } = require('util');
+const {promisify} = require('util');
 const path = require('path');
+
 const makeDir = require('make-dir');
 const fractal = require('@frctl/fractal').create();
 const nunj = require('@frctl/nunjucks');
@@ -77,9 +78,11 @@ fractal.web.set('server.syncOptions', {
 // Based on example in Fractal docs:
 // https://fractal.build/guide/integration/including-as-dependency.html#_3-next-steps
 
+const filenamePrefix = '@';
+
 // Promisified FS functions
-writeFile = promisify(fs.writeFile);
-unlink = promisify(fs.unlink);
+const writeFile = promisify(fs.writeFile);
+const unlink = promisify(fs.unlink);
 
 /**
  * Returns the handle for the given component item.
@@ -97,38 +100,37 @@ function getHandle(item) {
  * component item.
  *
  * @param {Component} item
- * @param {Fractal} app
  */
-function getExportedTemplatePath(item, app) {
-  const filenamePrefix = '@';
-  return path.join(bldPaths.distTemplatesDir, `${filenamePrefix}${getHandle(item)}${app.get('components.ext')}`);
+function getExportedTemplatePath(item) {
+  return path.join(bldPaths.distTemplatesDir, `${filenamePrefix}${getHandle(item)}${fractal.get('components.ext')}`);
 }
 
 /**
  * Exports a copy of the given component item's template file.
  *
  * @param {Component} item
- * @param {Fractal} app
  */
-async function exportTemplate(item, app) {
-  const exportPath = getExportedTemplatePath(item, app);
+async function exportTemplate(item) {
+  if (!item.isHidden) {
+    const exportPath = getExportedTemplatePath(item);
+    const contents = item.content;
 
-  const contents = item.content;
-  contents.replace(/\@([0-9a-zA-Z\-\_]*)/g, function(match, handle){
-    return `./${filenamePrefix}${handle}${app.get('components.ext')}`;
-  });
+    contents.replace(/@([0-9a-zA-Z\-_]*)/g, (match, handle) => {
+      return `./${filenamePrefix}${handle}${fractal.get('components.ext')}`;
+    });
 
-  await writeFile(exportPath, contents);
+    await writeFile(exportPath, contents);
+  }
 }
 
 /**
  * Deletes the exported template copy for the given component item.
  *
  * @param {Component} item
- * @param {Fractal} app
  */
-async function deleteTemplate(item, app) {
-  const exportPath = getExportedTemplatePath(item, app);
+async function deleteTemplate(item) {
+  const exportPath = getExportedTemplatePath(item);
+
   await unlink(exportPath);
 }
 
@@ -143,49 +145,41 @@ async function deleteTemplate(item, app) {
  *
  * Run by using the command `fractal export` in the root of the project directory.
  */
-function exportTemplates(args, done) {
-  const app = this.fractal;
-  const items = app.components.flattenDeep().toArray();
+async function exportTemplates() {
+  const items = fractal.components.flattenDeep().toArray();
   const jobs = [];
 
-  return makeDir(bldPaths.distTemplatesDir).then(() => {
+  await makeDir(bldPaths.distTemplatesDir);
+  for (const item of items) {
+    jobs.push(exportTemplate(item));
+  }
 
-    for (const item of items) {
-      if (!item.isHidden) {
-        const job = exportTemplate(item, app);
-        jobs.push(job);
-      }
-    }
-
-    return Promise.all(jobs).then(() => {
-      fractal.cli.log(`⚑ Exported ${jobs.length} templates`);
-    });
-  });
+  await Promise.all(jobs);
+  fractal.cli.log(`⚑ Exported ${jobs.length} templates`);
 }
 
 
 // Add export command to CLI
-fractal.cli.command('export', exportTemplates,  {
-    description: 'Export all component templates'
+fractal.cli.command('export', exportTemplates, {
+  description: 'Export all component templates',
 });
-
 
 
 // Use change event to detect file deletions
 // This is because the corresponding item still exists in Fractal's
 // components collection at this point.
-fractal.on('source:changed', (source, eventData) => {
+fractal.on('source:changed', async (source, eventData) => {
   if (eventData.event === 'unlink' && eventData.isTemplate) {
     const template = source.find('viewPath', eventData.path);
+
     if (template) {
-      deleteTemplate(template, fractal).then(() => {
-        fractal.cli.log(`Deleted exported template @${getHandle(template)}!`);
-      });
-    }
-    else {
+      await deleteTemplate(template, fractal);
+      fractal.cli.log(`Deleted exported template @${getHandle(template)}!`);
+    } else {
       fractal.cli.log(`Could not find ${eventData.path} in components collection`);
     }
   }
+
   // Ignore changes to non-templates
 });
 
@@ -193,18 +187,18 @@ fractal.on('source:changed', (source, eventData) => {
 // Use updated event to detect file additions or changes
 // This is because the corresponding item will in Fractal's
 // components collection at this point.
-fractal.on('source:updated', (source, eventData) => {
+fractal.on('source:updated', async (source, eventData) => {
   if ((eventData.event === 'add' || eventData.event === 'change') && eventData.isTemplate) {
     const template = source.find('viewPath', eventData.path);
+
     if (template) {
-      exportTemplate(template, fractal).then(() => {
-        fractal.cli.log(`Exported template @${getHandle(template)}!`);
-      });
-    }
-    else {
+      await exportTemplate(template, fractal);
+      fractal.cli.log(`Exported template @${getHandle(template)}!`);
+    } else {
       fractal.cli.log(`Could not find ${eventData.path} in components collection`);
     }
   }
+
   // Ignore updates to non-templates
 });
 

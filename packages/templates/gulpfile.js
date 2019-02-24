@@ -111,8 +111,8 @@ function buildPreviewCss() {
     .pipe(sourcemaps.init())
     .pipe(sass({
       includePaths: [
-        uiBldPaths.sassPath()
-      ]
+        uiBldPaths.sassPath(),
+      ],
     }))
     .pipe(rename({
       dirname: bldPaths.previewDirname,
