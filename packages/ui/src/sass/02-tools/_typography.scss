@@ -75,7 +75,7 @@
 
   $shift: cy-accent-font-vertical-shift($step);
   @if $shift != 0 {
-    padding-top: $shift;
     margin-bottom: -1 * $shift;
+    padding-top: $shift;
   }
 }
