@@ -29,8 +29,8 @@
   },
   "devDependencies": {
     "@cyberfinity/eslint-config": "^1.0.0",
-    "eslint": "^5.12.0",
-    "eslint-config-canonical": "^16.0.0",
-    "stylelint": "^9.9.0"
+    "eslint": "^5.15.2",
+    "eslint-config-canonical": "^16.2.0",
+    "stylelint": "^9.10.1"
   }
 }

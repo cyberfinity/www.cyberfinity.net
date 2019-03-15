@@ -19,8 +19,8 @@
   "author": "James Nash (http://cirrus.twiddles.com/)",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^5.12.0",
-    "eslint-config-canonical": "^16.0.0"
+    "eslint": "^5.15.2",
+    "eslint-config-canonical": "^16.2.0"
   },
   "peerDependencies": {
     "eslint": ">= 5",
