@@ -7,8 +7,20 @@
   <title>{{ title }}</title>
 </head>
 <body>
-  {% block body %}
-    Hello World
-  {% endblock %}
+  <header>
+    {% block pageHeader %}
+
+    {% endblock %}
+  </header>
+  <main>
+    {% block pageMain %}
+
+    {% endblock %}
+  </main>
+  <footer>
+    {% block pageFooter %}
+
+    {% endblock %}
+  </footer>
 </body>
 </html>

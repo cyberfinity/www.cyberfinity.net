@@ -5,6 +5,8 @@
 */
 
 * {
+  box-sizing: border-box;
+
   // Make everything inherit key typography properties by default
   color: inherit; // Note, border-color defaults to this too, unless overridden
   font-family: inherit;

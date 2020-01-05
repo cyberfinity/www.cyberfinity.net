@@ -4,4 +4,46 @@ body {
   font-family: $cy-font-family;
   image-rendering: crisp-edges;
   line-height: $cy-line-height-base;
+
+  display: grid;
+  padding: $cy-sp-md;
+  min-height: 100vh;
+
+  $content-width: 50rem;
+  @media (min-width: ($content-width + 4 * $cy-sp-md)) {
+
+    grid-template-columns: 1fr $content-width 1fr;
+    grid-column-gap: $cy-sp-md;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      border: 7px solid $cy-co-fg;
+      border-image-source: url('../img/border-1.png');
+      border-image-slice: 7;
+      border-image-width: 7px;
+      background-color: rgba($cy-co-bg, 0.6);
+      grid-row: 1 / 4;
+    }
+
+    &::before {
+      grid-column: 1 / 2;
+    }
+
+    &::after {
+      grid-column: -2 / -1;
+    }
+  }
+
+  > header,
+  main,
+  > footer {
+    border: 7px solid $cy-co-fg;
+    border-image-source: url('../img/border-1.png');
+    border-image-slice: 7;
+    border-image-width: 7px;
+
+    background-color: $cy-co-bg;
+  }
 }
