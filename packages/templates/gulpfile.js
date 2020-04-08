@@ -84,7 +84,7 @@ function copyUiAssets() {
 function watchUiAssets(done) {
   gulp.watch(
     uiBldPaths.distPath('**', '*'),
-    copyUiAssets
+    copyUiAssets,
   );
   done();
 }
@@ -99,7 +99,7 @@ function copyPreviewAssets() {
 function watchPreviewAssets(done) {
   gulp.watch(
     bldPaths.previewPath(bldPaths.assetsDirname, '**', '*'),
-    copyPreviewAssets
+    copyPreviewAssets,
   );
   done();
 }
@@ -126,7 +126,7 @@ function buildPreviewCss() {
 function watchPreviewSass(done) {
   gulp.watch(
     bldPaths.previewPath('**', '*.scss'),
-    buildPreviewCss
+    buildPreviewCss,
   );
   done();
 }
@@ -135,12 +135,12 @@ function watchPreviewSass(done) {
 const copyAssets = gulp.parallel(
   copyUiAssets,
   buildPreviewCss,
-  copyPreviewAssets
+  copyPreviewAssets,
 );
 
 const build = gulp.parallel(
   gulp.series(copyAssets, buildPatternLibrary),
-  exportTemplates
+  exportTemplates,
 );
 
 
@@ -148,7 +148,7 @@ const start = gulp.series(copyAssets, gulp.parallel(
   watchUiAssets,
   watchPreviewSass,
   watchPreviewAssets,
-  startPatternLibrary
+  startPatternLibrary,
 ));
 
 module.exports = {

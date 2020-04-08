@@ -29,7 +29,7 @@ function buildCss() {
 function watchSass(done) {
   gulp.watch(
     bldPaths.sassPath('**', '*.scss'),
-    buildCss
+    buildCss,
   );
   done();
 }
@@ -45,7 +45,7 @@ function copyImages() {
 function watchImages(done) {
   gulp.watch(
     bldPaths.imageDir('**', '*'),
-    copyImages
+    copyImages,
   );
   done();
 }
@@ -57,7 +57,7 @@ const build = gulp.parallel(buildCss, copyImages);
 // Warch all the things!
 const watch = gulp.series(build, gulp.parallel(
   watchSass,
-  watchImages
+  watchImages,
 ));
 
 

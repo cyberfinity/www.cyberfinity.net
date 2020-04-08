@@ -19,6 +19,7 @@ module.exports = {
       'error',
       'always-multiline',
     ],
+    'filenames/match-exported': 0,
     'filenames/match-regex': [
       'error',
       '^[a-z][a-z-]+$',
@@ -56,5 +57,6 @@ module.exports = {
         named: 'never',
       },
     ],
+    'unicorn/prevent-abbreviations': 0,
   },
 };
