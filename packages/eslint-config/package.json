@@ -19,11 +19,11 @@
   "author": "James Nash (http://cirrus.twiddles.com/)",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^5.15.3",
-    "eslint-config-canonical": "^16.2.0"
+    "eslint": "^6.8.0",
+    "eslint-config-canonical": "^19.0.4"
   },
   "peerDependencies": {
-    "eslint": ">= 5",
-    "eslint-config-canonical": "^16.0.0"
+    "eslint": ">= 6",
+    "eslint-config-canonical": "^19.0.0"
   }
 }

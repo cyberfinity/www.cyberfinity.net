@@ -23,6 +23,6 @@
   "author": "James Nash (http://cirrus.twiddles.com/)",
   "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
-    "lerna": "^3.13.1"
+    "lerna": "^3.20.2"
   }
 }

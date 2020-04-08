@@ -24,15 +24,15 @@
   "author": "James Nash (http://cirrus.twiddles.com/)",
   "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
-    "@11ty/eleventy": "^0.7.1",
+    "@11ty/eleventy": "^0.10.0",
     "@cyberfinity/eslint-config": "^1.0.0",
     "@cyberfinity/www-templates": "^1.0.0",
     "@cyberfinity/www-ui": "^1.0.0",
-    "del": "^4.0.0",
-    "eslint": "^5.15.3",
-    "eslint-config-canonical": "^16.2.0",
-    "gulp": "^4.0.0",
-    "gulp-shell": "^0.7.0",
-    "nunjucks": "^3.2.0"
+    "del": "^5.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-canonical": "^19.0.4",
+    "gulp": "^4.0.2",
+    "gulp-shell": "^0.8.0",
+    "nunjucks": "^3.2.1"
   }
 }
