@@ -14,8 +14,8 @@ function distPath(...args) {
 }
 
 const styleDirname = 'style';
-const srcTemplateDirname = 'templates';
-const srcDataDirname = 'data';
+const srcTemplateDirname = '_templates';
+const srcDataDirname = '_data';
 
 module.exports = {
   distDir,
