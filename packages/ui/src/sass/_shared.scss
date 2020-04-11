@@ -2,8 +2,5 @@
 // Does not generate any CSS code.
 
 // Layer 1 & 2 imports
-@import './01-settings/color';
-@import './01-settings/typography';
-@import './01-settings/spacing';
-
-@import './02-tools/typography';
+@forward './01-settings/';
+@forward './02-tools/';

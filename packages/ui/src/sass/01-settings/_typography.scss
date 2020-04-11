@@ -5,7 +5,7 @@
   be derived from this, ensuring the text and elements align to a
   strict, vertical rythmn.
 */
-$cy-line-height-base: 1.5rem;
+$line-height-base: 1.5rem;
 
 /*
   Main font family used for body text.
@@ -16,7 +16,7 @@ $cy-line-height-base: 1.5rem;
   - https://www.client9.com/css-system-font-stack-monospace-v1/
   - https://www.client9.com/css-system-font-stack-monospace-v2/
 */
-$cy-font-family: Menlo, Consolas, monospace;
+$font-family: Menlo, Consolas, monospace;
 
 /**
   Accent font family for headings and other text that
@@ -24,4 +24,4 @@ $cy-font-family: Menlo, Consolas, monospace;
 
   Uses main, monospace font stack as its fallback.
 */
-$cy-font-family-accent: 'Press Start 2P', #{$cy-font-family};
+$font-family-accent: 'Press Start 2P', #{$font-family};

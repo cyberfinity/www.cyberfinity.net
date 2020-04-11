@@ -1,5 +1,5 @@
 // Shared stuff from www-ui
-@import 'shared';
+@use 'shared' as cyberfinity;
 
 $pr-co-grey: #777;
 $pr-co-grey-light: #555;
@@ -9,7 +9,7 @@ $pr-co-accent: #f00;
 
 .preview-body {
   background-color: $pr-co-grey;
-  padding: $cy-line-height-base;
+  padding: cyberfinity.$line-height-base;
 }
 
 .preview-body--vertical-rythmn {
@@ -23,7 +23,7 @@ $pr-co-accent: #f00;
 
   // How far away from top of line-height the baseline is, expressed
   // as a fraction
-  $baseline-top-offset: ($cy-line-height-base - cy-accent-font-baseline-from-bottom()) / $cy-line-height-base;
+  $baseline-top-offset: (cyberfinity.$line-height-base - cyberfinity.accent-font-baseline-from-bottom()) / cyberfinity.$line-height-base;
 
   background-image: linear-gradient(
     $pr-co-grey-dark,
@@ -36,11 +36,11 @@ $pr-co-accent: #f00;
     mix($pr-co-grey-light, $pr-co-accent, 80%)
   );
   background-repeat: repeat-y;
-  background-size: 100% (2 * $cy-line-height-base);
+  background-size: 100% (2 * cyberfinity.$line-height-base);
 }
 
 .preview-body--checkerboard {
   background-image: url('./assets/checkerboard.png');
   background-repeat: repeat;
-  background-size: (2 * $cy-line-height-base) (2 * $cy-line-height-base);
+  background-size: (2 * cyberfinity.$line-height-base) (2 * cyberfinity.$line-height-base);
 }

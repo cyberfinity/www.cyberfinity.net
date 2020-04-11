@@ -3,6 +3,7 @@
   * https://alistapart.com/article/axiomatic-css-and-lobotomized-owls
   * https://www.smashingmagazine.com/2016/11/css-inheritance-cascade-global-scope-new-old-worst-best-friends/
 */
+@use '../01-settings/spacing';
 
 * {
   box-sizing: border-box;
@@ -18,7 +19,7 @@
 
 // Default vertical margin *between* block elements
 * + * {
-  margin-top: $cy-sp-md;
+  margin-top: spacing.$md;
 }
 
 // Exceptions to the * + * rule

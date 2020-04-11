@@ -1,3 +1,5 @@
+@use '../01-settings/spacing';
+
 dd {
-  margin-left: $cy-sp-md;
+  margin-left: spacing.$md;
 }

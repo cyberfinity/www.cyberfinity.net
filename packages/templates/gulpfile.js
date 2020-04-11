@@ -8,6 +8,8 @@ const uiBldPaths = require('@cyberfinity/www-ui/build-api');
 const bldPaths = require('./build-api');
 const fractal = require('./fractal');
 
+sass.compiler = require('sass');
+
 // Clean dist dir
 function clean() {
   return del([

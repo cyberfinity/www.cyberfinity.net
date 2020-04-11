@@ -39,6 +39,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "make-dir": "^3.0.2",
+    "sass": "^1.26.3",
     "stylelint": "^13.3.1"
   }
 }

@@ -6,6 +6,8 @@ const del = require('del');
 
 const bldPaths = require('./build-api');
 
+sass.compiler = require('sass');
+
 // Clean dist dir
 function clean() {
   return del(bldPaths.distPath('*'));
