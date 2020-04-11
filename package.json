@@ -5,6 +5,7 @@
   "description": "Monorepo containing the packages that make up the www.cyberfinity.net website",
   "main": "index.js",
   "scripts": {
+    "commit": "git-cz",
     "bootstrap": "lerna bootstrap",
     "clean": "lerna run clean",
     "build": "lerna run build",
@@ -23,6 +24,13 @@
   "author": "James Nash (http://cirrus.twiddles.com/)",
   "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
+    "commitizen": "^4.0.4",
+    "cz-conventional-changelog": "^3.1.0",
     "lerna": "^3.20.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
