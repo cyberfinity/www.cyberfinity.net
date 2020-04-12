@@ -18,11 +18,19 @@ const srcTemplateDirname = '_templates';
 const srcDataDirname = '_data';
 
 module.exports = {
-  distDir,
   distPath,
+  distRelPath: (...pathSegments) => path.relative(
+    pkgDir,
+    distPath(...pathSegments),
+  ),
+
   srcDataDirname,
-  srcDir,
   srcPath,
+  srcRelPath: (...pathSegments) => path.relative(
+    pkgDir,
+    srcPath(...pathSegments),
+  ),
+
   srcTemplateDirname,
   styleDistDir: distPath(styleDirname),
 };

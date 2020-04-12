@@ -23,8 +23,8 @@ module.exports = function(eleventyConfig) {
 
   return {
     dir: {
-      input: bldPaths.srcDir,
-      output: bldPaths.distDir,
+      input: bldPaths.srcRelPath(),
+      output: bldPaths.distRelPath(),
 
       includes: bldPaths.srcTemplateDirname,
       data: bldPaths.srcDataDirname,
