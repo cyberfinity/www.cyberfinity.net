@@ -1,0 +1,21 @@
+@use '../01-settings/color';
+@use '../01-settings/spacing';
+@use '../01-settings/typography';
+
+@function unitless-px-to-rem($unitless) {
+  @return $unitless * 1rem / 16;
+}
+
+@mixin thin($includePadding: true) {
+  $border-width-unitless: 7;
+  $border-width-rem: unitless-px-to-rem($border-width-unitless);
+
+  border: $border-width-rem solid color.$fg;
+  border-image-slice: $border-width-unitless;
+  border-image-source: url('../img/border-1.png');
+  border-image-width: $border-width-rem;
+
+  @if $includePadding {
+    padding: (typography.$line-height-base - $border-width-rem) (spacing.$md - $border-width-rem);
+  }
+}

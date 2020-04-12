@@ -1,6 +1,7 @@
 @use '../01-settings/color';
 @use '../01-settings/spacing';
 @use '../01-settings/typography';
+@use '../02-tools/containers';
 
 body {
   $content-width: 50rem;
@@ -14,18 +15,16 @@ body {
   min-height: 100vh;
   padding: spacing.$md;
 
-  @media (min-width: ($content-width + 4 * spacing.$md)) {
+  @media (min-width: ($content-width + 2 * spacing.$md)) {
 
     grid-column-gap: spacing.$md;
     grid-template-columns: 1fr $content-width 1fr;
 
     &::before,
     &::after {
+      @include containers.thin(false);
+
       background-color: rgba(color.$bg, 0.6);
-      border: 7px solid color.$fg;
-      border-image-slice: 7;
-      border-image-source: url('../img/border-1.png');
-      border-image-width: 7px;
       content: '';
       display: block;
       grid-row: 1 / 4;
@@ -43,10 +42,8 @@ body {
   > header,
   main,
   > footer {
+    @include containers.thin();
+
     background-color: color.$bg;
-    border: 7px solid color.$fg;
-    border-image-slice: 7;
-    border-image-source: url('../img/border-1.png');
-    border-image-width: 7px;
   }
 }
