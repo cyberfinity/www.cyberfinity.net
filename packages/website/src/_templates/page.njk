@@ -7,10 +7,14 @@
   <title>{{ title }}</title>
 </head>
 <body>
-{% include "@container.njk" %}
 {% block body %}
-  {{ content | safe }}
+  {% include 'partials/page-header.njk' %}
+  <main>
+  {% block main %}
+    {{ content | safe }}
+  {% endblock %}
+  </main>
+  {% include 'partials/page-footer.njk' %}
 {% endblock %}
-{% include "partials/thing.njk" %}
 </body>
 </html>

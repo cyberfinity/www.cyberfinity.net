@@ -11,7 +11,8 @@
     "build": "lerna run build",
     "start": "lerna run --parallel start",
     "test": "lerna run test",
-    "lint": "lerna run lint"
+    "lint": "lerna run lint",
+    "nuke-from-orbit": "lerna clean -y && npm i && lerna bootstrap && npm run clean"
   },
   "repository": {
     "type": "git",
