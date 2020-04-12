@@ -111,7 +111,7 @@ function getExportedTemplatePath(item) {
  * @param {Component} item
  */
 async function exportTemplate(item) {
-  if (!item.isHidden) {
+  if (!item.isHidden && !item.tags.includes('no-export')) {
     const exportPath = getExportedTemplatePath(item);
     const contents = item.content;
 
