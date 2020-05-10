@@ -1,0 +1,17 @@
+---
+# This index page is intentionally not within
+# the sites/ directory, so that it doesn'that
+# inherit the per-site tags and settings from
+# sites/sites.11tydata.js
+title: Websites
+layout: page.njk
+eleventyNavigation:
+  key: Websites
+---
+<ul>
+{% for site in collections.sites %}
+  <li>
+    <a href="{{ site.url }}">{{ site.data.title }}</a>
+  </li>
+{% endfor %}
+</ul>

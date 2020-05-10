@@ -1,21 +1,19 @@
 @use '../01-settings/color';
 @use '../01-settings/spacing';
-@use '../01-settings/typography';
-
-@function unitless-px-to-rem($unitless) {
-  @return $unitless * 1rem / 16;
-}
+@use './util';
 
 @mixin thin($includePadding: true) {
-  $border-width-unitless: 7;
-  $border-width-rem: unitless-px-to-rem($border-width-unitless);
+  $border-image-slide-px: 7px;
+  $border-image-slice: util.px-to-unitless($border-image-slide-px);
+  $border-image-width: util.px-to-rem($border-image-slide-px);
+  $fallback-border-width: util.px-to-rem(3px);
 
-  border: $border-width-rem solid color.$fg;
-  border-image-slice: $border-width-unitless;
+  border: $fallback-border-width double color.$fg;
+  border-image-slice: $border-image-slice;
   border-image-source: url('../img/border-1.png');
-  border-image-width: $border-width-rem;
+  border-image-width: $border-image-width;
 
   @if $includePadding {
-    padding: (typography.$line-height-base - $border-width-rem) (spacing.$md - $border-width-rem);
+    padding: (spacing.$sm - $fallback-border-width);
   }
 }

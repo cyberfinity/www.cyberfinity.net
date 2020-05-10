@@ -8,42 +8,16 @@ body {
 
   background: color.$bg url('../img/circuit.gif');
   color: color.$fg;
-  display: grid;
   font-family: typography.$font-family;
   image-rendering: crisp-edges;
   line-height: typography.$line-height-base;
-  min-height: 100vh;
-  padding: spacing.$md;
+  padding: spacing.$sm;
 
-  @media (min-width: ($content-width + 2 * spacing.$md)) {
-
-    grid-column-gap: spacing.$md;
-    grid-template-columns: 1fr $content-width 1fr;
-
-    &::before,
-    &::after {
-      @include containers.thin(false);
-
-      background-color: rgba(color.$bg, 0.6);
-      content: '';
-      display: block;
-      grid-row: 1 / 4;
-    }
-
-    &::before {
-      grid-column: 1 / 2;
-    }
-
-    &::after {
-      grid-column: -2 / -1;
-    }
-  }
-
-  > header,
+  // > header,
   main,
   > footer {
     @include containers.thin();
 
-    background-color: color.$bg;
+    background-color: color.$bg-translucent;
   }
 }

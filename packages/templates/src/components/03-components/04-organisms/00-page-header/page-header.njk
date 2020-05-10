@@ -1,0 +1,12 @@
+{% from '@nav-menu' import navMenu %}
+{% macro pageHeader(title, navLinks, currentUrl) %}
+<div class="cy-page-header">
+  <header>
+    <h1>{{ title }}</h1>
+  </header>
+  {{ navMenu(navLinks, currentUrl) | safe }}
+</div>
+{% endmacro %}
+
+{# Sample #}
+{{ pageHeader(title, navLinks, currentUrl) | safe }}

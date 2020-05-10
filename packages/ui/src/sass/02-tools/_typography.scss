@@ -1,4 +1,5 @@
 
+@use 'sass:math';
 @use '../01-settings/typography';
 
 /*
@@ -6,9 +7,9 @@
 
   Uses a linear scale for successive font sizes.
 
-  At the default 1rem (typically = 16px) size, it's features
-  are at least 2px thick. So, we can use 0.5rem increments and
-  every resulting size will align perfectly with the viewport's
+  At the default 1rem (typically = 16px) size, the accent font's
+  features are at least 2px thick. So, we can use 0.5rem increments
+  and every resulting size will align perfectly with the viewport's
   pixel grid.
 */
 @function font-size($step: 0) {
@@ -26,7 +27,7 @@
 */
 @function line-height($step: 0) {
   $font-size: font-size($step);
-  $multiplier: floor($font-size / typography.$line-height-base) + 1;
+  $multiplier: math.floor($font-size / typography.$line-height-base) + 1;
   @return typography.$line-height-base * $multiplier;
 }
 
@@ -63,7 +64,7 @@
 
 /**
   Emits font-size and/or line-height properties as needed
-  for the give step.
+  for the given accent font size step.
 */
 @mixin font-and-line($step: 0, $force: false) {
   @if $force or $step != 0 {
@@ -77,7 +78,7 @@
 
   $shift: accent-font-vertical-shift($step);
   @if $shift != 0 {
-    margin-bottom: -1 * $shift;
+    margin-bottom: (-1 * $shift);
     padding-top: $shift;
   }
 }

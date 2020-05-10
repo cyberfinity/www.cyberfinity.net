@@ -113,9 +113,9 @@ function getExportedTemplatePath(item) {
 async function exportTemplate(item) {
   if (!item.isHidden && !item.tags.includes('no-export')) {
     const exportPath = getExportedTemplatePath(item);
-    const contents = item.content;
+    let contents = item.content;
 
-    contents.replace(/@([0-9a-zA-Z\-_]*)/g, (match, handle) => {
+    contents = contents.replace(/@([0-9a-zA-Z\-_]+)/mg, (match, handle) => {
       return `./${filenamePrefix}${handle}${fractal.get('components.ext')}`;
     });
 

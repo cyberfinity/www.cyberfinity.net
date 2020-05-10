@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use './typography';
 
 $_multiplier: 2;
@@ -6,8 +7,8 @@ $_multiplier: 2;
 // are calculated:
 $md: typography.$line-height-base;
 
-$sm: $md / $_multiplier;
-$xs: $sm / $_multiplier;
+$xs: $md * math.pow($_multiplier, -2);
+$sm: $md * math.pow($_multiplier, -1);
 
-$lg: $md * $_multiplier;
-$xl: $lg * $_multiplier;
+$lg: $md * math.pow($_multiplier, 1);
+$xl: $lg * math.pow($_multiplier, 2);

@@ -40,7 +40,10 @@ $pr-co-accent: #f00;
 }
 
 .preview-body--checkerboard {
-  background-image: url('./assets/checkerboard.png');
-  background-repeat: repeat;
-  background-size: (2 * cyberfinity.$line-height-base) (2 * cyberfinity.$line-height-base);
+  background-blend-mode: soft-light, normal;
+  background-image: url('./assets/checkerboard.png'), url('./assets/checkerboard.png');
+  background-repeat: repeat, repeat;
+  background-size:
+    cyberfinity.$line-height-base cyberfinity.$line-height-base,
+    (2 * cyberfinity.$line-height-base) (2 * cyberfinity.$line-height-base);
 }

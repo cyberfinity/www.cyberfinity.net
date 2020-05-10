@@ -8,18 +8,9 @@ h4 {
   font-weight: normal;
 }
 
-h1 {
-  @include shared.font-and-line(3);
-}
-
-h2 {
-  @include shared.font-and-line(2);
-}
-
-h3 {
-  @include shared.font-and-line(1);
-}
-
+h1,
+h2,
+h3,
 h4,
 h5,
 h6 {

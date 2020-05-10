@@ -1,0 +1,17 @@
+{% extends 'page.njk' %}
+
+{% block main %}
+  <a href="{{ siteInfo.url }}">{{ siteInfo.url }}</a>
+
+  <h2>About</h2>
+  {{ super() }}
+
+  <h2>URL history</h2>
+  <ol>
+  {% for entry in siteInfo.history %}
+    <li>
+      <code>{{ entry.url }}</code>
+    </li>
+  {% endfor %}
+  </ol>
+{% endblock %}

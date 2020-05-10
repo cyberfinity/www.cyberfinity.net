@@ -1,4 +1,5 @@
 const nunjucks = require('nunjucks');
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const templateBldPaths = require('@cyberfinity/www-templates/build-api');
 const bldPaths = require('./build-api');
 
@@ -20,6 +21,8 @@ module.exports = function(eleventyConfig) {
     })
   ]);
   eleventyConfig.setLibrary("njk", nunjucksEnvironment);
+
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   return {
     dir: {

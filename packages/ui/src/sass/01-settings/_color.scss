@@ -1,3 +1,4 @@
+@use 'sass:color';
 /*
 	Colours
 */
@@ -5,6 +6,20 @@ $bg: #0a3616;
 $fg: #1ee857;
 
 $bg-accent: #521500;
-$fg-accent: #ff6833;
+$fg-accent: #ff8f62;
+
 
 $shadow: #051b0b;
+
+// From circuit.gif
+$green-0: #051b0b;
+$green-1: #0a3616;
+$green-2: #0b431a;
+$green-3: #0c4d1e;
+$green-4: #0f6b29;
+
+
+// Translucent colours
+$alpha: 0.7;
+
+$bg-translucent: color.change($bg, $alpha: $alpha);

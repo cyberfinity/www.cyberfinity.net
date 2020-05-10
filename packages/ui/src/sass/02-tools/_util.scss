@@ -1,0 +1,9 @@
+@use 'sass:math';
+
+@function px-to-unitless($pxVal) {
+  @return $pxVal / 1px;
+}
+
+@function px-to-rem($pxVal) {
+  @return $pxVal * 1rem / 16px;
+}

@@ -1,4 +1,30 @@
 {
   "preview": "@preview-raw",
-  "tags": ["no-export"]
+  "tags": ["no-export"],
+  "context": {
+    "title": "Lorem inpsum sit dolar amet",
+    "currentUrl": "#current",
+    "navLinks": [
+      {
+        "url": "#current",
+        "title": "Section 1"
+      },
+      {
+        "url": "#",
+        "title": "Section 2"
+      },
+      {
+        "url": "#",
+        "title": "Section 3"
+      },
+      {
+        "url": "#",
+        "title": "Section 4"
+      },
+      {
+        "url": "#",
+        "title": "Section 5"
+      }
+    ]
+  }
 }

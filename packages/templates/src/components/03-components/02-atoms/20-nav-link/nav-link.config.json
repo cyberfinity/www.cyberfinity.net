@@ -1,0 +1,14 @@
+{
+  "context": {
+    "url": "#",
+    "title": "Foo bar"
+  },
+  "variants": [
+    {
+      "name": "Current page",
+      "context": {
+        "isCurrent": true
+      }
+    }
+  ]
+}

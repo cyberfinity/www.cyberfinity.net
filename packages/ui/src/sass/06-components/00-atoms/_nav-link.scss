@@ -1,0 +1,23 @@
+@use '../../01-settings/color';
+@use '../../01-settings/spacing';
+@use '../../02-tools/util';
+
+.cy-nav-link {
+  $border-width: util.px-to-rem(3px);
+  $margin: util.px-to-rem(4px);
+
+  background-color: color.$bg-accent;
+  border: $border-width double color.$fg-accent;
+  display: block;
+  margin: $margin;
+  padding: (spacing.$sm - $border-width - $margin);
+
+  &:not(:link) {
+    background-color: color.$fg-accent;
+    border-color: color.$bg-accent;
+    color: color.$bg-accent;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+}

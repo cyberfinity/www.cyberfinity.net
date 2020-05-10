@@ -1,0 +1,15 @@
+{% from '@nav-link' import navLink %}
+{% macro navMenu(navLinks, currentUrl) %}
+<nav class="cy-nav-menu">
+  <ul>
+  {% for link in navLinks %}
+     <li>
+      {{ navLink(link.url, link.title, (link.url == currentUrl))}}
+    </li>
+  {% endfor %}
+  </ul>
+</nav>
+{% endmacro %}
+
+{# Sample #}
+{{- navMenu(navLinks, currentUrl) | safe -}}

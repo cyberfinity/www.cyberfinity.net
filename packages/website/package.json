@@ -25,6 +25,7 @@
   "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
+    "@11ty/eleventy-navigation": "^0.1.5",
     "@cyberfinity/eslint-config": "^1.0.0",
     "@cyberfinity/www-templates": "^1.0.0",
     "@cyberfinity/www-ui": "^1.0.0",

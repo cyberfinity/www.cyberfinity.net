@@ -1,0 +1,22 @@
+@use '../../01-settings/color';
+@use '../../01-settings/spacing';
+@use '../../02-tools/util';
+
+.cy-page-header {
+  $border-width: util.px-to-rem(1px);
+
+  header {
+    background-color: color.$bg-translucent;
+    border-style: solid;
+    border-width: $border-width $border-width 0 $border-width;
+    padding:
+      (spacing.$sm - $border-width)
+      (spacing.$sm - $border-width)
+      spacing.$sm
+      (spacing.$sm - $border-width);
+  }
+
+  .cy-nav-menu {
+    margin-top: 0;
+  }
+}

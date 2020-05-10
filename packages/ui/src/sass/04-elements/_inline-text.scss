@@ -1,0 +1,7 @@
+@use '../01-settings/color';
+
+a {
+  color: color.$fg-accent;
+
+
+}

@@ -1,0 +1,6 @@
+{% macro navLink(url, title, isCurrent = false) -%}
+<a class="cy-nav-link"{% if not isCurrent %} href="{{ url }}"{% endif %}>{{ title }}</a>
+{%- endmacro -%}
+
+{# Sample #}
+{{- navLink(url, title, isCurrent) | safe -}}
