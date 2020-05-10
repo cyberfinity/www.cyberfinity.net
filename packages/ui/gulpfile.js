@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const sass = require('gulp-sass');
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
+const imagemin = require('gulp-imagemin');
 const del = require('del');
 
 const bldPaths = require('./build-api');
@@ -38,8 +39,22 @@ function watchSass(done) {
 
 
 // Copy images
-function copyImages() {
-  return gulp.src(bldPaths.imageDir('**', '*'))
+function optimiseImages() {
+  return gulp.src(bldPaths.imageDir('**', '*.{gif,png,jpg,svg}'))
+    .pipe(imagemin([
+      imagemin.svgo({
+        plugins: [
+          {
+            removeViewBox: false,
+          },
+          {
+            removeDimensions: true,
+          },
+        ],
+      }),
+    ], {
+      verbose: true,
+    }))
     .pipe(gulp.dest(bldPaths.distPath(bldPaths.imageDirname)));
 }
 
@@ -47,14 +62,14 @@ function copyImages() {
 function watchImages(done) {
   gulp.watch(
     bldPaths.imageDir('**', '*'),
-    copyImages,
+    optimiseImages,
   );
   done();
 }
 
 
 // Build all the things!
-const build = gulp.parallel(buildCss, copyImages);
+const build = gulp.parallel(buildCss, optimiseImages);
 
 // Warch all the things!
 const watch = gulp.series(build, gulp.parallel(

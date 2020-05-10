@@ -1,8 +1,8 @@
 @use '../01-settings/color';
 
-a {
+// stylelint-disable-next-line selector-no-qualifying-type
+a[href] {
   color: color.$fg-accent;
-
 
   &:visited {
     color: color.$dim-accent;

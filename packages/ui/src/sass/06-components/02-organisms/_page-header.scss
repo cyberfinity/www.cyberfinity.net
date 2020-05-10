@@ -9,14 +9,51 @@
     background-color: color.$bg-translucent;
     border-style: solid;
     border-width: $border-width $border-width 0 $border-width;
-    padding:
-      (spacing.$sm - $border-width)
-      (spacing.$sm - $border-width)
-      spacing.$sm
-      (spacing.$sm - $border-width);
+    display: flex;
+
+    h1 {
+      border-left-style: solid;
+      border-left-width: util.px-to-rem(1px);
+      margin-top: 0;
+      padding:
+        (spacing.$sm - $border-width)
+        (spacing.$sm - $border-width)
+        spacing.$sm
+        (spacing.$sm - $border-width);
+    }
+
   }
 
   .cy-nav-menu {
     margin-top: 0;
+  }
+}
+
+.cy-page-header__logo {
+  $border-width: util.px-to-rem(3px);
+  $margin: util.px-to-rem(3px);
+
+  align-self: flex-start;
+  background-color: color.$bg;
+  border-style: double;
+  border-width: $border-width;
+  margin: $margin;
+  padding: (spacing.$sm - $border-width - $margin - util.px-to-rem(1px));
+
+  &[href] {
+    background-color: color.$bg-accent;
+
+    &:visited {
+      color: color.$fg-accent;
+    }
+
+    &:hover,
+    &:focus {
+      color: color.$bg-accent;
+    }
+  }
+
+  .cy-inline-logo {
+    display: block;
   }
 }

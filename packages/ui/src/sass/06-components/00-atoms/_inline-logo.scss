@@ -1,0 +1,7 @@
+@use '../../01-settings/spacing';
+
+.cy-inline-logo {
+  fill: currentColor;
+  height: auto;
+  width: spacing.$md;
+}

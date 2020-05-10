@@ -4,6 +4,16 @@ module.exports = {
   context: {
     ...navMenuConfig.context,
 
-    title: 'Lorem inpsum sit dolar amet'
-  }
+    title: 'Lorem inpsum sit dolar amet',
+    homeUrl: '#not-expected'
+  },
+
+  variants: [
+    {
+      name: 'Homepage',
+      context: {
+        homeUrl: '#expected'
+      }
+    }
+  ]
 };

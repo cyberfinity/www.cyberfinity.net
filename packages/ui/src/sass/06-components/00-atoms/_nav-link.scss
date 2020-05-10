@@ -13,15 +13,16 @@
   margin: $margin;
   padding: (spacing.$sm - $border-width - $margin);
 
-  &:visited {
-    color: color.$fg-accent;
-  }
+  &[href] {
+    &:visited {
+      color: color.$fg-accent;
+    }
 
-  &:hover,
-  &:focus {
-    color: color.$bg-accent;
+    &:hover,
+    &:focus {
+      color: color.$bg-accent;
+    }
   }
-
 
   &:not([href]) {
     background-color: color.$fg-accent;

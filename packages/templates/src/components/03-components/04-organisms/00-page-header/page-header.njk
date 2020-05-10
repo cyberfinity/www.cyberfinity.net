@@ -1,7 +1,10 @@
 {% from '@nav-menu' import navMenu %}
-{% macro pageHeader(title, navLinks, currentUrl) %}
+{% macro pageHeader(title, navLinks, currentUrl, homeUrl) %}
 <div class="cy-page-header">
   <header>
+    <a class="cy-page-header__logo" {% if currentUrl != homeUrl %} href="{{ homeUrl }}"{% endif %}>
+      {% include '@inline-logo' %}
+    </a>
     <h1>{{ title }}</h1>
   </header>
   {{ navMenu(navLinks, currentUrl) | safe }}
@@ -9,4 +12,4 @@
 {% endmacro %}
 
 {# Sample #}
-{{ pageHeader(title, navLinks, currentUrl) | safe }}
+{{ pageHeader(title, navLinks, currentUrl, homeUrl) | safe }}
