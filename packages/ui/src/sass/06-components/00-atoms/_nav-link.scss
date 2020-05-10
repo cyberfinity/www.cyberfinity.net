@@ -7,14 +7,24 @@
   $margin: util.px-to-rem(4px);
 
   background-color: color.$bg-accent;
-  border: $border-width double color.$fg-accent;
+  border-style: double;
+  border-width: $border-width;
   display: block;
   margin: $margin;
   padding: (spacing.$sm - $border-width - $margin);
 
-  &:not(:link) {
+  &:visited {
+    color: color.$fg-accent;
+  }
+
+  &:hover,
+  &:focus {
+    color: color.$bg-accent;
+  }
+
+
+  &:not([href]) {
     background-color: color.$fg-accent;
-    border-color: color.$bg-accent;
     color: color.$bg-accent;
     font-weight: bold;
     text-decoration: none;

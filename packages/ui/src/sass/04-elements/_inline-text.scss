@@ -4,4 +4,23 @@ a {
   color: color.$fg-accent;
 
 
+  &:visited {
+    color: color.$dim-accent;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: color.$fg-accent;
+    color: color.$bg-accent;
+  }
+
+  &:active {
+    background-color: color.$hl-accent;
+    color: color.$bg-accent;
+  }
+}
+
+
+strong {
+  color: color.$hl;
 }
