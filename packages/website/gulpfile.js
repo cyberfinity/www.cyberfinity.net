@@ -1,3 +1,4 @@
+const http = require('http');
 const gulp = require('gulp');
 const shell = require('gulp-shell');
 const del = require('del');
@@ -5,11 +6,27 @@ const uiBldPaths = require('@cyberfinity/www-ui/build-api');
 
 const bldPaths = require('./build-api');
 
+const browserSyncPort = 8080;
+
 // Clean dist dir
 function clean() {
   return del([
     bldPaths.distPath('*')
   ]);
+}
+
+
+function reloadBrowser(done) {
+  const url = `http://localhost:${browserSyncPort}/__browser_sync__?method=reload`;
+
+  http.get(url, (resp) => {
+    resp.on('data',() => {});
+    resp.on('end', () => {
+      done();
+    });
+  }).on('error', (err) => {
+    done(err);
+  });
 }
 
 
@@ -22,7 +39,10 @@ function copyUiAssets() {
 function watchUiAssets(done) {
   gulp.watch(
     uiBldPaths.distPath('**', '*'),
-    copyUiAssets,
+    gulp.series(
+      copyUiAssets,
+      reloadBrowser,
+    ),
   );
   done();
 }
