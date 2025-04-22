@@ -9,7 +9,8 @@
     "build": "echo 'this used to do: lerna run build'",
     "start": "echo 'this used to do: lerna run --parallel start'",
     "test": "echo 'this used to do: lerna run test'",
-    "lint": "echo 'this used to do: lerna run lint'"
+    "lint": "echo 'this used to do: lerna run lint'",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -22,12 +23,6 @@
   "author": "James Nash (http://cirrus.twiddles.com/)",
   "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
-    "husky": "^4.2.5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run test"
-    }
+    "husky": "^9.1.7"
   }
 }
