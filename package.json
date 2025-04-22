@@ -5,11 +5,11 @@
   "description": "Monorepo containing the packages that make up the www.cyberfinity.net website",
   "main": "index.js",
   "scripts": {
-    "clean": "echo 'this used to do: lerna run clean'",
-    "build": "echo 'this used to do: lerna run build'",
+    "clean": "npx nx run-many -t clean",
+    "build": "npx nx run-many -t build",
     "start": "echo 'this used to do: lerna run --parallel start'",
-    "test": "echo 'this used to do: lerna run test'",
-    "lint": "echo 'this used to do: lerna run lint'",
+    "test": "npx nx run-many -t test",
+    "lint": "npx nx run-many -t lint",
     "prepare": "husky"
   },
   "repository": {
@@ -23,7 +23,8 @@
   "author": "James Nash (http://cirrus.twiddles.com/)",
   "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
-    "husky": "^9.1.7"
+    "husky": "^9.1.7",
+    "nx": "20.8.0"
   },
   "workspaces": [
     "packages/*",

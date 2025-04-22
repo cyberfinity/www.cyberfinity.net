@@ -147,3 +147,8 @@ typings/
 .history
 
 # End of https://www.gitignore.io/api/node,linux,macos,visualstudiocode
+
+
+
+.nx/cache
+.nx/workspace-data
