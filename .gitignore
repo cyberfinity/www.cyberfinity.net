@@ -2,6 +2,11 @@
 dist/
 
 
+### Astro ####
+
+# generated types
+.astro/
+
 # Created by https://www.gitignore.io/api/node,linux,macos,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=node,linux,macos,visualstudiocode
 
@@ -142,3 +147,8 @@ typings/
 .history
 
 # End of https://www.gitignore.io/api/node,linux,macos,visualstudiocode
+
+
+
+.nx/cache
+.nx/workspace-data

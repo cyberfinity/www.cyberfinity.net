@@ -1,0 +1,114 @@
+---
+import HTML5 from "@cyberfinity/polymorph-components-astro/layouts/HTML5.astro";
+import PageHeader from "@cyberfinity/polymorph-components-astro/components/PageHeader.astro";
+import PageFooter from "@cyberfinity/polymorph-components-astro/components/PageFooter.astro";
+---
+
+<HTML5
+  title="Cyberfinity"
+  htmlProps={{
+    prefix: "schema: http://schema.org/ foaf: http://xmlns.com/foaf/0.1/",
+  }}
+>
+  <!-- Update this when Polymorph template improves -->
+  <Fragment slot="html-head">
+    <title>Cyberfinity</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </Fragment>
+
+  <PageHeader class="bodySection">
+    <p>Welcome to...</p>
+    <h1
+      property="schema:about"
+      resource="http://meatspace.cyberfinity.net/uri/cyberfinity"
+      typeof="schema:Organization"
+    >
+      <span property="schema:name">Cyberfinity</span>
+    </h1>
+  </PageHeader>
+  <div class="bodySection tmp">
+    <p>Home to these weird and wonderful sites:</p>
+    <ul resource="http://meatspace.cyberfinity.net/uri/cyberfinity">
+      <li
+        property="schema:member"
+        resource="http://meatspace.cyberfinity.net/uri/bcp"
+        typeof="schema:Organization"
+      >
+        <a property="schema:url" href="http://burpmancorp.cyberfinity.net/">
+          <span property="schema:name">Burpman Corporation</span>
+        </a>
+      </li>
+      <li
+        resource="http://meatspace.cyberfinity.net/uri/abi1"
+        typeof="foaf:Group"
+      >
+        <a property="foaf:homepage" href="http://abi1.cyberfinity.net/">
+          <span property="foaf:name">DSL Abitur 2001</span> alumni site
+        </a>
+      </li>
+      <li
+        property="schema:brand"
+        resource="http://meatspace.cyberfinity.net/uri/event-horizon_brand"
+        typeof="schema:Brand"
+      >
+        <a property="schema:url" href="http://event-horizon.cyberfinity.net/">
+          <span property="schema:name">Event-Horizon</span>
+        </a>
+      </li>
+      <li
+        property="schema:brand"
+        resource="http://meatspace.cyberfinity.net/uri/meatspace_brand"
+        typeof="schema:Brand"
+      >
+        <a property="schema:url" href="http://meatspace.cyberfinity.net/">
+          <span property="schema:name">Meatspace</span>
+        </a>
+      </li>
+      <li resource="http://meatspace.cyberfinity.net/uri/bcp">
+        <span
+          property="schema:brand"
+          resource="http://meatspace.cyberfinity.net/uri/mentalmix_brand"
+          typeof="schema:Brand"
+        >
+          <a property="schema:url" href="http://mentalmix.cyberfinity.net/">
+            <span property="schema:name">Mental Mix</span> magazine
+          </a>
+        </span>
+      </li>
+      <li
+        property="schema:brand"
+        resource="http://meatspace.cyberfinity.net/uri/nostromo_brand"
+        typeof="schema:Brand"
+      >
+        <a property="schema:url" href="http://nostromo.cyberfinity.net">
+          <span property="schema:name">Nostromo</span>
+        </a>
+      </li>
+    </ul>
+    <p>...and some other odds'n'ends:</p>
+    <ul>
+      <li>
+        <a href="bitcoins/">List of bitcoin faucets</a>
+      </li>
+    </ul>
+  </div>
+  <PageFooter class="bodySection">
+    <p>
+      &copy; <time
+        property="schema:copyrightYear schema:datePublished"
+        datetime="2012">2012</time
+      >
+      <span
+        property="schema:creator"
+        resource="http://meatspace.twiddles.com/uri/james_nash"
+        typeof="schema:Person"
+        ><a property="schema:url" href="http://cirrus.twiddles.com/"
+          ><span property="schema:name">James Nash</span></a
+        ></span
+      >.
+    </p>
+  </PageFooter>
+</HTML5>
